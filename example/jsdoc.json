@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "../",
+    "plugins/markdown"
+  ],
+  "source": {
+    "include": [
+      "."
+    ],
+    "includePattern": "\\.(vue|js)$"
+  },
+  "opts": {
+    "destination": "./docs",
+    "encoding": "utf8"
+  }
+}
