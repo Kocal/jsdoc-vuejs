@@ -22,7 +22,7 @@
       }
     },
     computed: {
-      message () {
+      message() {
         return `Counter: ${this.counter}`
       }
     },
