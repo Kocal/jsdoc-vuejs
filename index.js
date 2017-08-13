@@ -6,13 +6,12 @@ const transformSource = require('./lib/sourceTransformer');
 const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor');
 const vueTag = require('./lib/vueTag');
 
+const handleDocletForMethodsAndHooks = require('./lib/docletHandlerForMethodsAndHooks');
+const handleDocletForProps = require('./lib/docletHandlerForProps');
+const handleDocletForData = require('./lib/docletHandlerForData');
+const handleDocletForComputed = require('./lib/docletHandlerForComputed');
+
 const allVueComponentPrototypes = {};
-const vueHooks = [
-  'beforeCreate', 'created',
-  'beforeMount', 'mounted',
-  'beforeUpdate', 'updated',
-  'beforeDestroy', 'destroyed'
-];
 
 exports.handlers = {
   beforeParse(e) {
@@ -23,24 +22,30 @@ exports.handlers = {
       e.source = parsedComponent.script ? parsedComponent.script.content : '';
 
       const transformedSource = transformSource(componentName, e.source);
-      const vueComponentPrototype = extractVueComponentPrototype(transformedSource);
 
-      allVueComponentPrototypes[e.filename] = vueComponentPrototype;
+      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource);
     }
   },
   newDoclet(e) {
-    // handle functions in .vue
-    if (e.doclet.meta.filename.endsWith('.vue') && e.doclet.kind === 'function') {
-      e.doclet.scope = 'instance';
+    if (e.doclet.scope === 'vue') {
+      const file = path.join(e.doclet.meta.path, e.doclet.meta.filename);
+      const vueComponentPrototype = allVueComponentPrototypes[file];
 
-      if (e.doclet.memberof.endsWith('.methods')) { // is a method
-        e.doclet.memberof = e.doclet.memberof.split('.')[0];
-      }
+      /*
+       * Dirty tricks, only supports default template at the moment.
+       * We should find a way to write subsections like « Methods » one,
+       * outside this doclet description...
+       */
+      e.doclet.description = `</p></div></div>`;
 
-      if (vueHooks.includes(e.doclet.name)) {
-        e.doclet.name = `[Hook] ${e.doclet.name}`;
-      }
+      handleDocletForProps(e, vueComponentPrototype);
+      handleDocletForData(e, vueComponentPrototype);
+      handleDocletForComputed(e, vueComponentPrototype);
+
+      e.doclet.description += `<div class="container-overview"><div><p>`;
     }
+
+    handleDocletForMethodsAndHooks(e);
   }
 };
 
