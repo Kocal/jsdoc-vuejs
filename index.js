@@ -23,7 +23,7 @@ exports.handlers = {
 
       const transformedSource = transformSource(componentName, e.source);
 
-      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource);
+      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename);
     }
   },
   newDoclet(e) {
