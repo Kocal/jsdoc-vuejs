@@ -1,0 +1,1 @@
+Demo for [jsdoc-vuejs](https://github.com/Kocal/jsdoc-vuejs).
