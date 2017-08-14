@@ -18,11 +18,10 @@ exports.handlers = {
     if (/\.vue$/.test(e.filename)) {
       const componentName = path.basename(e.filename, '.vue');
       const parsedComponent = compiler.parseComponent(e.source);
+      const source = parsedComponent.script ? parsedComponent.script.content : '';
+      const transformedSource = transformSource(componentName, source);
 
-      e.source = parsedComponent.script ? parsedComponent.script.content : '';
-
-      const transformedSource = transformSource(componentName, e.source);
-
+      e.source = source;
       allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename);
     }
   },
