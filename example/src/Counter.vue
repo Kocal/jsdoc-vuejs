@@ -7,7 +7,7 @@
 
 <script>
   /**
-   * @vue
+   * No @vue tag, will not be documented.
    */
   export default {
     data() {
