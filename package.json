@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-vuejs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
   "scripts": {
