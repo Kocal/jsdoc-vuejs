@@ -1,7 +1,7 @@
 const path = require('path');
-
 const compiler = require('vue-template-compiler');
 
+require('./lib/requireHookForVue');
 const transformSource = require('./lib/sourceTransformer');
 const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor');
 const vueTag = require('./lib/vueTag');
