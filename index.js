@@ -5,11 +5,7 @@ require('./lib/requireHookForVue');
 const transformSource = require('./lib/sourceTransformer');
 const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor');
 const vueTag = require('./lib/vueTag');
-
-const handleDocletForMethodsAndHooks = require('./lib/docletHandlerForMethodsAndHooks');
-const handleDocletForProps = require('./lib/docletHandlerForProps');
-const handleDocletForData = require('./lib/docletHandlerForData');
-const handleDocletForComputed = require('./lib/docletHandlerForComputed');
+const docletHandlers = require('./lib/docletHandlers');
 
 const allVueComponentPrototypes = {};
 
@@ -37,14 +33,14 @@ exports.handlers = {
        */
       e.doclet.description = `</p></div></div>`;
 
-      handleDocletForProps(e, vueComponentPrototype);
-      handleDocletForData(e, vueComponentPrototype);
-      handleDocletForComputed(e, vueComponentPrototype);
+      docletHandlers.handleProps(e, vueComponentPrototype);
+      docletHandlers.handleComputed(e, vueComponentPrototype);
+      docletHandlers.handleData(e, vueComponentPrototype);
 
       e.doclet.description += `<div class="container-overview"><div><p>`;
     }
 
-    handleDocletForMethodsAndHooks(e);
+    docletHandlers.handleMethodsAndHooks(e);
   }
 };
 
