@@ -16,13 +16,16 @@ $ yarn add jsdoc-vuejs -D
 
 # Usage
 
-Update your JSDoc plugins:
+Update your JSDoc configuration
 
 ```json
 {
   "plugins": [
     "node_modules/jsdoc-vuejs"
-  ]
+  ],
+  "source": {
+    "includePattern": "\\.(vue|js)$"
+  }
 }
 ```
 
