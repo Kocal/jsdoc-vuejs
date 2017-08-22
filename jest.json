@@ -1,0 +1,12 @@
+{
+  "bail": true,
+  "verbose": true,
+  "moduleFileExtensions": [
+    "js",
+    "vue"
+  ],
+  "transform": {
+    "^.+\\.js$": "./node_modules/babel-jest",
+    ".*\\.(vue)$": "./node_modules/jest-vue-preprocessor"
+  }
+}
