@@ -3,10 +3,17 @@
   "verbose": true,
   "moduleFileExtensions": [
     "js",
+    "json",
     "vue"
   ],
   "transform": {
     "^.+\\.js$": "./node_modules/babel-jest",
     ".*\\.(vue)$": "./node_modules/jest-vue-preprocessor"
-  }
+  },
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["json", "html", "text"],
+  "collectCoverageFrom": [
+    "lib/*.js"
+  ]
 }
