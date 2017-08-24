@@ -12,7 +12,7 @@
   },
   "collectCoverage": true,
   "coverageDirectory": "coverage",
-  "coverageReporters": ["json", "html", "text"],
+  "coverageReporters": ["json", "lcov", "html", "text"],
   "collectCoverageFrom": [
     "lib/*.js"
   ]

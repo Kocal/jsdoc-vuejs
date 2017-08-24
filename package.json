@@ -4,7 +4,7 @@
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jest.json"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "coveralls": "^2.13.1",
     "jest": "^20.0.4",
     "jest-vue-preprocessor": "^1.1.0"
   }
