@@ -12,10 +12,9 @@ const allVueComponentPrototypes = {};
 exports.handlers = {
   beforeParse(e) {
     if (/\.vue$/.test(e.filename)) {
-      const componentName = path.basename(e.filename, '.vue');
       const parsedComponent = compiler.parseComponent(e.source);
       const source = parsedComponent.script ? parsedComponent.script.content : '';
-      const transformedSource = transformSource(componentName, source);
+      const transformedSource = transformSource(source);
 
       e.source = source;
       allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename);

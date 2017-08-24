@@ -3,6 +3,7 @@
     "jsdoc": "^3.5.4"
   },
   "scripts": {
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "docs-force": "rm -fr ./docs && npm run docs"
   }
 }

@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "8"
+  - "7"
+  - "6"
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+
+install:
+  - yarn
+  - cd example && yarn && cd ..
+
+before_script:
+  - cd example && yarn docs && cd ..
+
+script: yarn test
+
+after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
