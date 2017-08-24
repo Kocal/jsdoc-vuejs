@@ -1,45 +1,128 @@
 const path = require('path');
 
 const docletHandlers = require('./../lib/docletHandlers');
-const BetterCounter = require('./../example/src/BetterCounter.vue');
 
-const JSDocEvent = {
-  doclet: {
-    meta: {
-      filename: path.join(__dirname, '../example/src/BetterCounter.vue')
-    },
-    description: ''
+const createJSDocEvent = (filename) => {
+  return {
+    doclet: {
+      meta: {
+        filename
+      },
+      description: ''
+    }
   }
 };
 
-describe('handleComputed', () => {
-  it('should properly handle event\'s doclet', () => {
-    docletHandlers.handleComputed(JSDocEvent, BetterCounter);
+const createJSDocEventForMethod = (filename) => {
+  const event = createJSDocEvent(filename);
 
-    expect(JSDocEvent.doclet.description).toMatchSnapshot();
-  })
-});
+  event.doclet.kind = 'function';
 
-describe('handleData', () => {
-  it('should properly handle event\'s doclet', () => {
-    docletHandlers.handleData(JSDocEvent, BetterCounter);
+  return event;
+};
 
-    expect(JSDocEvent.doclet.description).toMatchSnapshot();
-  })
-});
+describe('docletHandlers', () => {
+  describe('BetterCounter', () => {
+    const filename = path.join(__dirname, '../example/src/BetterCounter.vue');
+    const BetterCounter = require(filename);
+    const JSDocEvent = createJSDocEvent(filename);
 
-describe('handleMethodsAndHooks', () => {
-  it('should properly handle event\'s doclet', () => {
-    docletHandlers.handleMethodsAndHooks(JSDocEvent, BetterCounter);
+    describe('handleComputed', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleComputed(JSDocEvent, BetterCounter);
 
-    expect(JSDocEvent.doclet.description).toMatchSnapshot();
-  })
-});
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
 
-describe('handleProps', () => {
-  it('should properly handle event\'s doclet', () => {
-    docletHandlers.handleProps(JSDocEvent, BetterCounter);
+    describe('handleData', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleData(JSDocEvent, BetterCounter);
 
-    expect(JSDocEvent.doclet.description).toMatchSnapshot();
-  })
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+
+    describe('handleMethodsAndHooks', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleMethodsAndHooks(JSDocEvent);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+
+    describe('handleProps', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleProps(JSDocEvent, BetterCounter);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+  });
+
+  describe('EmptyComponent', () => {
+    const filename = path.join(__dirname, 'fixtures/EmptyComponent.vue');
+    const EmptyComponent = require(filename);
+    const JSDocEvent = createJSDocEvent(filename);
+
+    describe('handleComputed', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleComputed(JSDocEvent, EmptyComponent);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+
+    describe('handleData', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleData(JSDocEvent, EmptyComponent);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+
+    describe('handleMethodsAndHooks', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleMethodsAndHooks(JSDocEvent);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+
+    describe('handleProps', () => {
+      it('should properly handle event\'s doclet', () => {
+        docletHandlers.handleProps(JSDocEvent, EmptyComponent);
+
+        expect(JSDocEvent.doclet.description).toMatchSnapshot();
+      })
+    });
+  });
+
+  describe('methods and hooks', () => {
+    // this case should not event exists
+    it('should not modify doclet if not vue file', () => {
+      const event = createJSDocEventForMethod('foo.bar');
+      const finalEvent = createJSDocEventForMethod('foo.bar');
+
+      expect(event).toEqual(finalEvent);
+      docletHandlers.handleMethodsAndHooks(finalEvent);
+      expect(event).toEqual(finalEvent);
+    });
+
+    it('should modify name when it\'s a hook', () => {
+      const event = createJSDocEventForMethod('foo.vue');
+
+      event.doclet.name = 'created';
+      docletHandlers.handleMethodsAndHooks(event);
+      expect(event.doclet.name).toEqual('[Hook] created')
+    });
+
+    it('should not modify name when it\'s not a hook', () => {
+      const event = createJSDocEventForMethod('foo.vue');
+
+      event.doclet.name = 'not_a_hook';
+      docletHandlers.handleMethodsAndHooks(event);
+      expect(event.doclet.name).toEqual('not_a_hook');
+    });
+  });
 });
