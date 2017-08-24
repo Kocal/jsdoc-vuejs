@@ -1,5 +1,7 @@
-const BetterCounter = require('../example/src/BetterCounter.vue');
 const extractors = require("../lib/extractors");
+
+const BetterCounter = require('../example/src/BetterCounter.vue');
+const EmptyComponent = require('./fixtures/EmptyComponent.vue');
 
 describe('extractors', () => {
   describe('props', () => {
@@ -22,6 +24,14 @@ describe('extractors', () => {
     });
   });
 
+  describe('empty props', () => {
+    it('should be extracted correctly', () => {
+      const props = extractors.extractProps(EmptyComponent);
+
+      expect(props).toEqual([]);
+    })
+  });
+
   describe('computed', () => {
     const computed = extractors.extractComputed(BetterCounter);
 
@@ -32,6 +42,14 @@ describe('extractors', () => {
         }
       ]);
     });
+  });
+
+  describe('empty computed', () => {
+    it('should be extracted correctly', () => {
+      const computed = extractors.extractComputed(EmptyComponent);
+
+      expect(computed).toEqual([]);
+    })
   });
 
   describe('data', () => {
@@ -45,5 +63,13 @@ describe('extractors', () => {
         }
       ]);
     });
+  });
+
+  describe('empty data', () => {
+    it('should be extracted correctly', () => {
+      const data = extractors.extractData(EmptyComponent);
+
+      expect(data).toEqual([]);
+    })
   });
 });
