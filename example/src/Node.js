@@ -1,19 +1,18 @@
 class Node {
-
   /**
    * @param {*} data
    */
-  constructor(data) {
+  constructor (data) {
     /**
      * @type {*}
      */
-    this.data = data;
+    this.data = data
 
     /**
      * @type {Node|null}
      */
-    this.previous = null;
+    this.previous = null
   }
 }
 
-modules.exports = Node;
+module.exports = Node

@@ -1,48 +1,48 @@
-const path = require('path');
-const compiler = require('vue-template-compiler');
+const path = require('path')
+const compiler = require('vue-template-compiler')
 
-require('./lib/requireHookForVue');
-const transformSource = require('./lib/sourceTransformer');
-const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor');
-const vueTag = require('./lib/vueTag');
-const docletHandlers = require('./lib/docletHandlers');
+require('./lib/requireHookForVue')
+const transformSource = require('./lib/sourceTransformer')
+const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor')
+const vueTag = require('./lib/vueTag')
+const docletHandlers = require('./lib/docletHandlers')
 
-const allVueComponentPrototypes = {};
+const allVueComponentPrototypes = {}
 
 exports.handlers = {
-  beforeParse(e) {
+  beforeParse (e) {
     if (/\.vue$/.test(e.filename)) {
-      const parsedComponent = compiler.parseComponent(e.source);
-      const source = parsedComponent.script ? parsedComponent.script.content : '';
-      const transformedSource = transformSource(source);
+      const parsedComponent = compiler.parseComponent(e.source)
+      const source = parsedComponent.script ? parsedComponent.script.content : ''
+      const transformedSource = transformSource(source)
 
-      e.source = source;
-      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename);
+      e.source = source
+      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename)
     }
   },
-  newDoclet(e) {
+  newDoclet (e) {
     if (e.doclet.scope === 'vue') {
-      const file = path.join(e.doclet.meta.path, e.doclet.meta.filename);
-      const vueComponentPrototype = allVueComponentPrototypes[file];
+      const file = path.join(e.doclet.meta.path, e.doclet.meta.filename)
+      const vueComponentPrototype = allVueComponentPrototypes[file]
 
       /*
        * Dirty tricks, only supports default template at the moment.
        * We should find a way to write subsections like « Methods » one,
        * outside this doclet description...
        */
-      e.doclet.description = `</p></div></div>`;
+      e.doclet.description = `</p></div></div>`
 
-      docletHandlers.handleProps(e, vueComponentPrototype);
-      docletHandlers.handleComputed(e, vueComponentPrototype);
-      docletHandlers.handleData(e, vueComponentPrototype);
+      docletHandlers.handleProps(e, vueComponentPrototype)
+      docletHandlers.handleComputed(e, vueComponentPrototype)
+      docletHandlers.handleData(e, vueComponentPrototype)
 
-      e.doclet.description += `<div class="container-overview"><div><p>`;
+      e.doclet.description += `<div class="container-overview"><div><p>`
     }
 
-    docletHandlers.handleMethodsAndHooks(e);
+    docletHandlers.handleMethodsAndHooks(e)
   }
-};
+}
 
 exports.defineTags = function (dictionary) {
-  dictionary.defineTag(vueTag.name, vueTag.options);
-};
+  dictionary.defineTag(vueTag.name, vueTag.options)
+}
