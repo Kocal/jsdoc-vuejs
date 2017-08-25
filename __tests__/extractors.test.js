@@ -1,11 +1,11 @@
-const extractors = require("../lib/extractors");
+const extractors = require('../lib/extractors')
 
-const BetterCounter = require('../example/src/BetterCounter.vue');
-const EmptyComponent = require('./fixtures/EmptyComponent.vue');
+const BetterCounter = require('../example/src/BetterCounter.vue')
+const EmptyComponent = require('./fixtures/EmptyComponent.vue')
 
 describe('extractors', () => {
   describe('props', () => {
-    const props = extractors.extractProps(BetterCounter);
+    const props = extractors.extractProps(BetterCounter)
 
     it('should be extracted correctly', () => {
       expect(props).toEqual([
@@ -20,56 +20,55 @@ describe('extractors', () => {
           required: 'false',
           default: 1
         }
-      ]);
-    });
-  });
+      ])
+    })
+  })
 
   describe('empty props', () => {
     it('should be extracted correctly', () => {
-      const props = extractors.extractProps(EmptyComponent);
+      const props = extractors.extractProps(EmptyComponent)
 
-      expect(props).toEqual([]);
+      expect(props).toEqual([])
     })
-  });
+  })
 
   describe('computed', () => {
-    const computed = extractors.extractComputed(BetterCounter);
+    const computed = extractors.extractComputed(BetterCounter)
 
     it('should be extracted correctly', () => {
       expect(computed).toEqual([
         {
           name: 'message'
         }
-      ]);
-    });
-  });
+      ])
+    })
+  })
 
   describe('empty computed', () => {
     it('should be extracted correctly', () => {
-      const computed = extractors.extractComputed(EmptyComponent);
+      const computed = extractors.extractComputed(EmptyComponent)
 
-      expect(computed).toEqual([]);
+      expect(computed).toEqual([])
     })
-  });
+  })
 
   describe('data', () => {
-    const data = extractors.extractData(BetterCounter);
+    const data = extractors.extractData(BetterCounter)
 
     it('should be extracted correctly', () => {
-
       expect(data).toEqual([
         {
           name: 'counter'
         }
-      ]);
-    });
-  });
+      ])
+    })
+  })
 
   describe('empty data', () => {
     it('should be extracted correctly', () => {
-      const data = extractors.extractData(EmptyComponent);
+      const data = extractors.extractData(EmptyComponent)
 
-      expect(data).toEqual([]);
+      expect(data).toEqual([])
     })
-  });
-});
+  })
+})
