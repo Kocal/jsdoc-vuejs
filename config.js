@@ -1,8 +1,12 @@
-const env = require('jsdoc/env')
-
-const initialConfig = {
+let config = {
   followImports: true
 }
-const config = Object.assign({}, initialConfig, env.conf['jsdoc-vuejs'])
+
+try {
+  const env = require('jsdoc/env')
+  config = Object.assign({}, config, env.conf['jsdoc-vuejs'])
+} catch (e) {
+
+}
 
 module.exports = config
