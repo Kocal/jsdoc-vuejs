@@ -15,5 +15,8 @@
   "coverageReporters": ["json", "lcov", "html", "text"],
   "collectCoverageFrom": [
     "lib/*.js"
-  ]
+  ],
+  "globals": {
+    "__DEV__": true
+  }
 }

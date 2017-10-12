@@ -29,6 +29,9 @@ Update your JSDoc configuration
   ],
   "source": {
     "includePattern": "\\.(vue|js)$"
+  },
+  "jsdoc-vuejs": {
+    "followImports": true // enable/disable require/import function 
   }
 }
 ```

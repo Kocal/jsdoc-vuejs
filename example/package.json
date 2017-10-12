@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "jsdoc": "^3.5.4"
+    "jsdoc": "^3.5.5"
   },
   "scripts": {
     "docs": "jsdoc -c jsdoc.json",
