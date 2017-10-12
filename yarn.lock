@@ -2011,9 +2011,9 @@ jest-validate@^20.0.3:
     leven "^2.1.0"
     pretty-format "^20.0.3"
 
-jest-vue-preprocessor@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-1.2.0.tgz#3d4d7978f505200dbc26eeb71f824683402796bc"
+jest-vue-preprocessor@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-1.1.0.tgz#34e4da27eb2a0216d5899c84242c70c650b4c341"
   dependencies:
     babel-plugin-transform-runtime "6.23.0"
     find-babel-config "1.1.0"
