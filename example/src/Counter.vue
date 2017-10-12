@@ -6,6 +6,8 @@
 </template>
 
 <script>
+  import {fooBar} from '@alias/non-existant-file'
+
   /**
    * No @vue tag, will not be documented.
    */

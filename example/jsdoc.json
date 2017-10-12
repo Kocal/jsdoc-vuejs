@@ -13,5 +13,8 @@
   "opts": {
     "destination": "./docs",
     "encoding": "utf8"
+  },
+  "jsdoc-vuejs": {
+    "followImports": false
   }
 }
