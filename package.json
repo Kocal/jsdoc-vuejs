@@ -42,5 +42,10 @@
     "jest": "^21.2.1",
     "jest-vue-preprocessor": "1.1.0",
     "vue-template-es2015-compiler": "^1.6.0"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "jest-vue-preprocessor"
+    ]
   }
 }
