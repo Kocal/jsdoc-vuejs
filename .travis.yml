@@ -8,12 +8,16 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
 
 install:
+  - yarn global add greenkeeper-lockfile@1
   - yarn
   - cd example && yarn && cd ..
 
 before_script:
+  - greenkeeper-lockfile-update
   - cd example && yarn docs && cd ..
 
 script: yarn test
+
+after_script: greenkeeper-lockfile-upload
 
 after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
