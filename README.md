@@ -1,6 +1,8 @@
 JSDoc for VueJS
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Kocal/jsdoc-vuejs.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/jsdoc-vuejs.svg)](https://badge.fury.io/js/jsdoc-vuejs)
 [![Build Status](https://travis-ci.org/Kocal/jsdoc-vuejs.svg?branch=master)](https://travis-ci.org/Kocal/jsdoc-vuejs)
 [![Coverage Status](https://coveralls.io/repos/github/Kocal/jsdoc-vuejs/badge.svg?branch=master)](https://coveralls.io/github/Kocal/jsdoc-vuejs?branch=master)
