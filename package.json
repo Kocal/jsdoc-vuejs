@@ -4,7 +4,7 @@
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && jest --config jest.json",
+    "test": "jest --config jest.json",
     "lint": "eslint index.js lib __tests__"
   },
   "repository": {
