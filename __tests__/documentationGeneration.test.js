@@ -14,7 +14,7 @@ describe('documentation generation', () => {
   })
 
   it('documentation for Counter should not be generated', (done) => {
-    const filename = path.join(docsOutputPath, 'module-(Vue)%20Counter.html')
+    const filename = path.join(docsOutputPath, 'Vue_Counter.html')
 
     fs.stat(filename, (err, stats) => {
       expect(err).not.toBeNull()
@@ -25,7 +25,7 @@ describe('documentation generation', () => {
   })
 
   describe('BetterCounter documentation generation', () => {
-    const filename = path.join(docsOutputPath, 'module-(Vue)%20BetterCounter.html')
+    const filename = path.join(docsOutputPath, 'Vue_BetterCounter.html')
 
     it('documentation should be generated', (done) => {
       fs.stat(filename, (err, stats) => {

@@ -21,7 +21,7 @@ describe('vueTag', () => {
       },
       scope: 'vue',
       kind: 'module',
-      alias: '(Vue) foo.bar'
+      alias: 'Vue:foo.bar'
     })
   })
 })
