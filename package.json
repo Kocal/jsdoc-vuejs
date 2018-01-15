@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^22.1.0",
+    "jest": "^22.1.1",
     "jest-vue-preprocessor": "1.1.0",
     "vue-template-es2015-compiler": "^1.6.0"
   },
