@@ -3494,8 +3494,8 @@ vue-property-decorator@5.1.1:
     vue-class-component "^5.0.0"
 
 vue-template-compiler@^2.4.4:
-  version "2.5.13"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.13.tgz#12a2aa0ecd6158ac5e5f14d294b0993f399c3d38"
+  version "2.5.15"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.15.tgz#cc004097e37167be8b85ea22ab2840d8e8cca1c0"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
