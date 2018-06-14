@@ -7,4 +7,5 @@
 - Removed `followImports` config (#53)
 - Removed configuration system (#53)
 - Removed source transformation (Babel) (#55)
-- Removed  (#57)
+- Removed Vue component script evaluation (#57)
+- Removed hooks listing (#59)
