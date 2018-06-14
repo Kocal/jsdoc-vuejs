@@ -1,41 +1,47 @@
-const path = require('path')
-const compiler = require('vue-template-compiler')
-
-require('./lib/requireHookForVue')
-const vueTag = require('./lib/vueTag')
-const docletHandlers = require('./lib/docletHandlers')
+const config = require('./config')
+const render = require('./lib/core/renderer')
+const extractVueScript = require('./lib/core/vueScriptExtractor')
+const vueDataTag = require('./lib/tags/vue-data')
+const vuePropTag = require('./lib/tags/vue-prop')
+const vueComputedTag = require('./lib/tags/vue-computed')
 
 exports.handlers = {
   beforeParse (e) {
     if (/\.vue$/.test(e.filename)) {
-      const parsedComponent = compiler.parseComponent(e.source)
-
-      e.source = parsedComponent.script ? parsedComponent.script.content : ''
+      e.source = extractVueScript(e.filename)
     }
   },
   newDoclet (e) {
-    if (e.doclet.scope === 'vue') {
-      const file = path.join(e.doclet.meta.path, e.doclet.meta.filename)
-      const vueComponentPrototype = null //TODO: to be removed
+    if (e.doclet.meta.filename.endsWith('.vue')) {
+      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '')
 
-      /*
-       * Dirty tricks, only supports default template at the moment.
-       * We should find a way to write subsections like « Methods » one,
-       * outside this doclet description...
-       */
-      e.doclet.description = `</p></div></div>`
+      // if (e.doclet.memberof === 'module.exports') {
+      //   e.doclet.memberof = componentName
+      // }
+      //
+      // if (e.doclet.longname.startsWith('module.exports.')) {
+      //   e.doclet.longname = e.doclet.longname.replace('module.exports.', componentName)
+      // }
 
-      docletHandlers.handleProps(e, vueComponentPrototype)
-      docletHandlers.handleComputed(e, vueComponentPrototype)
-      docletHandlers.handleData(e, vueComponentPrototype)
+      if (e.doclet._isVueDoc) {
+        const { renderer } = config['jsdoc-vuejs']
+        const props = e.doclet._vueProps || []
+        const data = e.doclet._vueData || []
+        const computed = e.doclet._vueComputed || []
 
-      e.doclet.description += `<div class="container-overview"><div><p>`
+        e.doclet.kind = 'module'
+        e.doclet.name = e.doclet.alias = e.doclet.longname = componentName
+        e.doclet.description = render(renderer, e.doclet.description || '', props, data, computed)
+
+        // Remove meta for not rendering source for this doclet
+        delete e.doclet.meta
+      }
     }
-
-    docletHandlers.handleMethods(e)
   }
 }
 
 exports.defineTags = function (dictionary) {
-  dictionary.defineTag(vueTag.name, vueTag.options)
+  dictionary.defineTag(vueDataTag.name, vueDataTag.options)
+  dictionary.defineTag(vuePropTag.name, vuePropTag.options)
+  dictionary.defineTag(vueComputedTag.name, vueComputedTag.options)
 }
