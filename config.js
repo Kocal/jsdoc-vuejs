@@ -1,6 +1,4 @@
-let config = {
-  followImports: true
-}
+let config = {}
 
 try {
   const env = require('jsdoc/env')
