@@ -32,7 +32,7 @@ exports.handlers = {
       e.doclet.description += `<div class="container-overview"><div><p>`
     }
 
-    docletHandlers.handleMethodsAndHooks(e)
+    docletHandlers.handleMethods(e)
   }
 }
 
