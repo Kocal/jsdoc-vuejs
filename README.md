@@ -5,7 +5,7 @@ JSDoc for VueJS
 [![Build Status](https://travis-ci.org/Kocal/jsdoc-vuejs.svg?branch=master)](https://travis-ci.org/Kocal/jsdoc-vuejs)
 [![Coverage Status](https://coveralls.io/repos/github/Kocal/jsdoc-vuejs/badge.svg?branch=master)](https://coveralls.io/github/Kocal/jsdoc-vuejs?branch=master)
 
-> A wobbly JSDoc plugin for listing props, data, computed data, hooks and methods from *.vue files.
+> A wobbly JSDoc plugin for listing props, data, computed data, and methods from *.vue files.
 
 > WARNING: Actually, it's only working with the default JSDoc template.
 
