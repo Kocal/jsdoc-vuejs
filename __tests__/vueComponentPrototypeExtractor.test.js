@@ -2,7 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const vueCompiler = require('vue-template-compiler')
 
-const transformSource = require('../lib/sourceTransformer')
 const extractVueComponent = require('../lib/vueComponentPrototypeExtractor')
 
 const readFileAndExtractVueComponent = (filename, cb) => {
@@ -14,8 +13,7 @@ const readFileAndExtractVueComponent = (filename, cb) => {
     expect(parsedComponent.script).not.toBeNull()
     expect(parsedComponent.script.type).toEqual('script')
 
-    const transformedSource = transformSource(parsedComponent.script.content)
-    const vueComponentPrototype = extractVueComponent(transformedSource, filename)
+    const vueComponentPrototype = extractVueComponent(parsedComponent.script.content, filename)
 
     cb(vueComponentPrototype)
   })
