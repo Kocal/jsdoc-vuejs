@@ -1,7 +1,10 @@
 const compiler = require('vue-template-compiler')
 
 require('./lib/requireHookForVue')
-const vueTag = require('./lib/vueTag')
+const vueTag = require('./lib/tags/vue')
+const vueDataTag = require('./lib/tags/vue-data')
+const vuePropTag = require('./lib/tags/vue-prop')
+const vueComputedTag = require('./lib/tags/vue-computed')
 
 exports.handlers = {
   beforeParse (e) {
