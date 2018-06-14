@@ -2,26 +2,21 @@ const path = require('path')
 const compiler = require('vue-template-compiler')
 
 require('./lib/requireHookForVue')
-const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor')
 const vueTag = require('./lib/vueTag')
 const docletHandlers = require('./lib/docletHandlers')
-
-const allVueComponentPrototypes = {}
 
 exports.handlers = {
   beforeParse (e) {
     if (/\.vue$/.test(e.filename)) {
       const parsedComponent = compiler.parseComponent(e.source)
-      const source = parsedComponent.script ? parsedComponent.script.content : ''
 
-      e.source = source
-      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(source, e.filename)
+      e.source = parsedComponent.script ? parsedComponent.script.content : ''
     }
   },
   newDoclet (e) {
     if (e.doclet.scope === 'vue') {
       const file = path.join(e.doclet.meta.path, e.doclet.meta.filename)
-      const vueComponentPrototype = allVueComponentPrototypes[file]
+      const vueComponentPrototype = null //TODO: to be removed
 
       /*
        * Dirty tricks, only supports default template at the moment.

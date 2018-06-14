@@ -6,3 +6,5 @@
 
 - Removed `followImports` config (#53)
 - Removed configuration system (#53)
+- Removed source transformation (Babel) (#55)
+- Removed  (#57)
