@@ -2,7 +2,6 @@ const path = require('path')
 const compiler = require('vue-template-compiler')
 
 require('./lib/requireHookForVue')
-const transformSource = require('./lib/sourceTransformer')
 const extractVueComponentPrototype = require('./lib/vueComponentPrototypeExtractor')
 const vueTag = require('./lib/vueTag')
 const docletHandlers = require('./lib/docletHandlers')
@@ -14,10 +13,9 @@ exports.handlers = {
     if (/\.vue$/.test(e.filename)) {
       const parsedComponent = compiler.parseComponent(e.source)
       const source = parsedComponent.script ? parsedComponent.script.content : ''
-      const transformedSource = transformSource(source)
 
       e.source = source
-      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(transformedSource, e.filename)
+      allVueComponentPrototypes[e.filename] = extractVueComponentPrototype(source, e.filename)
     }
   },
   newDoclet (e) {
