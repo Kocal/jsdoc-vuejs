@@ -43,9 +43,9 @@ describe('docletHandlers', () => {
       })
     })
 
-    describe('handleMethodsAndHooks', () => {
+    describe('handleMethods', () => {
       it('should properly handle event\'s doclet', () => {
-        docletHandlers.handleMethodsAndHooks(JSDocEvent)
+        docletHandlers.handleMethods(JSDocEvent)
 
         expect(JSDocEvent.doclet.description).toMatchSnapshot()
       })
@@ -81,9 +81,9 @@ describe('docletHandlers', () => {
       })
     })
 
-    describe('handleMethodsAndHooks', () => {
+    describe('handleMethods', () => {
       it('should properly handle event\'s doclet', () => {
-        docletHandlers.handleMethodsAndHooks(JSDocEvent)
+        docletHandlers.handleMethods(JSDocEvent)
 
         expect(JSDocEvent.doclet.description).toMatchSnapshot()
       })
@@ -105,7 +105,7 @@ describe('docletHandlers', () => {
       const finalEvent = createJSDocEventForMethod('foo.bar')
 
       expect(event).toEqual(finalEvent)
-      docletHandlers.handleMethodsAndHooks(finalEvent)
+      docletHandlers.handleMethods(finalEvent)
       expect(event).toEqual(finalEvent)
     })
 
@@ -113,7 +113,7 @@ describe('docletHandlers', () => {
       const event = createJSDocEventForMethod('foo.vue')
 
       event.doclet.name = 'created'
-      docletHandlers.handleMethodsAndHooks(event)
+      docletHandlers.handleMethods(event)
       expect(event.doclet.name).toEqual('[Hook] created')
     })
 
@@ -121,7 +121,7 @@ describe('docletHandlers', () => {
       const event = createJSDocEventForMethod('foo.vue')
 
       event.doclet.name = 'not_a_hook'
-      docletHandlers.handleMethodsAndHooks(event)
+      docletHandlers.handleMethods(event)
       expect(event.doclet.name).toEqual('not_a_hook')
     })
   })
