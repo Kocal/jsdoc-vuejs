@@ -4,8 +4,9 @@ dist: trusty
 language: node_js
 node_js:
   - "6"
-  - "7"
   - "8"
+  - "9"
+  - "10"
 
 cache:
   yarn: true
@@ -19,6 +20,7 @@ before_install:
 install:
   - yarn
   - cd example && yarn && cd ..
+  - yarn cypress install
 
 before_script:
   - cd example
@@ -27,6 +29,7 @@ before_script:
   - yarn jsdoc -d docs-minami -c jsdoc.json -t ./node_modules/minami
   - yarn jsdoc -d docs-pixi -c jsdoc.json -t ./node_modules/@pixi/jsdoc-template
   - yarn jsdoc -d docs-tui -c jsdoc.json -t ./node_modules/tui-jsdoc-template
+  - cd ..
 
 script:
   - yarn lint

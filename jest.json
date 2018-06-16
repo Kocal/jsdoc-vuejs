@@ -9,6 +9,7 @@
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",
-    "/__fixtures__/"
+    "/__fixtures__/",
+    "/cypress/"
   ]
 }
