@@ -29,6 +29,7 @@
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
     "coveralls": "^3.0.0",
+    "cypress": "^3.0.1",
     "eslint": "^4.6.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.7.0",

@@ -31,5 +31,6 @@ before_script:
 script:
   - yarn lint
   - yarn test
+  - yarn cypress run
 
 after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
