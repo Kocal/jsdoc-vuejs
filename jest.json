@@ -5,7 +5,7 @@
   "coverageDirectory": "coverage",
   "coverageReporters": ["json", "lcov", "html", "text"],
   "collectCoverageFrom": [
-    "lib/**/*.js"
+    "lib/core/*.js"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",

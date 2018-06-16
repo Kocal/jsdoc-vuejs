@@ -1,5 +1,5 @@
 const config = require('jsdoc/env')
-const guessRenderer = require('./lib/guessers/guessRenderer')
+const guessRenderer = require('./lib/core/guessRenderer')
 
 config['jsdoc-vuejs'] = config['jsdoc-vuejs'] || {}
 

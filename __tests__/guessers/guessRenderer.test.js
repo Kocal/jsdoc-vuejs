@@ -1,4 +1,4 @@
-const guessRenderer = require('../../lib/guessers/guessRenderer')
+const guessRenderer = require('../../lib/core/guessRenderer')
 
 describe('guessRenderer', () => {
   test('guess default', () => {
