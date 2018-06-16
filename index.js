@@ -1,6 +1,5 @@
 const compiler = require('vue-template-compiler')
 
-require('./lib/requireHookForVue')
 const defaultRenderer = require('./lib/renderers/default');
 const vueDataTag = require('./lib/tags/vue-data')
 const vuePropTag = require('./lib/tags/vue-prop')
