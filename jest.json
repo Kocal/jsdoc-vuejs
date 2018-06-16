@@ -6,5 +6,9 @@
   "coverageReporters": ["json", "lcov", "html", "text"],
   "collectCoverageFrom": [
     "lib/**/*.js"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/__fixtures__/"
   ]
 }

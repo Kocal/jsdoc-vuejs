@@ -1,5 +1,6 @@
-const defaultRenderer = require('./lib/renderers/default');
-const extractVueScript = require('./lib/core/extractVueScript')
+const config = require('./config')
+const render = require('./lib/core/renderer')
+const extractVueScript = require('./lib/core/vueScriptExtractor')
 const vueDataTag = require('./lib/tags/vue-data')
 const vuePropTag = require('./lib/tags/vue-prop')
 const vueComputedTag = require('./lib/tags/vue-computed')
@@ -23,13 +24,14 @@ exports.handlers = {
       // }
 
       if (e.doclet._isVueDoc) {
+        const { renderer } = config['jsdoc-vuejs']
         const props = e.doclet._vueProps || []
         const data = e.doclet._vueData || []
         const computed = e.doclet._vueComputed || []
 
         e.doclet.kind = 'module'
         e.doclet.name = e.doclet.alias = e.doclet.longname = componentName
-        e.doclet.description = defaultRenderer(e.doclet.description || '', props, data, computed)
+        e.doclet.description = render(renderer, e.doclet.description || '', props, data, computed)
 
         // Remove meta for not rendering source for this doclet
         delete e.doclet.meta
