@@ -1,6 +1,5 @@
-const compiler = require('vue-template-compiler')
-
 const defaultRenderer = require('./lib/renderers/default');
+const extractVueScript = require('./lib/core/extractVueScript')
 const vueDataTag = require('./lib/tags/vue-data')
 const vuePropTag = require('./lib/tags/vue-prop')
 const vueComputedTag = require('./lib/tags/vue-computed')
@@ -8,9 +7,7 @@ const vueComputedTag = require('./lib/tags/vue-computed')
 exports.handlers = {
   beforeParse (e) {
     if (/\.vue$/.test(e.filename)) {
-      const parsedComponent = compiler.parseComponent(e.source)
-
-      e.source = parsedComponent.script ? parsedComponent.script.content : ''
+      e.source = extractVueScript(e.filename)
     }
   },
   newDoclet (e) {
