@@ -30,6 +30,9 @@ exports.handlers = {
         e.doclet.kind = 'module'
         e.doclet.name = e.doclet.alias = e.doclet.longname = componentName
         e.doclet.description = defaultRenderer(e.doclet.description || '', props, data, computed)
+
+        // Remove meta for not rendering source for this doclet
+        delete e.doclet.meta
       }
     }
   }
