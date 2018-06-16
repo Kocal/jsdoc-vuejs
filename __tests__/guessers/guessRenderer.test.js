@@ -14,10 +14,6 @@ describe('guessRenderer', () => {
     expect(guessRenderer('node_modules/minami')).toBe('minami')
   })
 
-  test('guess pixi', () => {
-    expect(guessRenderer('@pixi/jsdoc-template')).toBe('pixi')
-  })
-
   test('guess tui', () => {
     expect(guessRenderer('node_modules/tui-jsdoc-template')).toBe('tui')
   })

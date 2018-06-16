@@ -12,7 +12,7 @@ xdescribe('core.renderer', () => {
     console.log.mockRestore()
   })
 
-  ;['default', 'docstrap', 'minami', 'pixi', 'tui'].forEach(renderer => {
+  ;['default', 'docstrap', 'minami', 'tui'].forEach(renderer => {
     test(`core.renderer.${renderer}`, () => {
       expect(render(renderer, [], [], [])).toMatchSnapshot()
       expect(render(renderer, fixtureProps, [], [])).toMatchSnapshot()

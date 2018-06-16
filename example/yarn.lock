@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@pixi/jsdoc-template@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@pixi/jsdoc-template/-/jsdoc-template-2.4.1.tgz#ae1a5782fdff154412cc4ac396b5b9ef43f25f10"
-  dependencies:
-    taffydb "^2.7.2"
-    underscore "^1.7.0"
-
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -379,10 +372,6 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-taffydb@^2.7.2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.7.3.tgz#2ad37169629498fca5bc84243096d3cde0ec3a34"
-
 tui-jsdoc-template@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/tui-jsdoc-template/-/tui-jsdoc-template-1.2.2.tgz#e382e2c99e457aa9df14d6fc036331046d4acee7"
@@ -398,10 +387,6 @@ underscore-contrib@~0.3.0:
 underscore@1.6.0, underscore@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.6.0.tgz#8b38b10cacdef63337b8b24e4ff86d45aea529a8"
-
-underscore@^1.7.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
 
 underscore@~1.8.3:
   version "1.8.3"
