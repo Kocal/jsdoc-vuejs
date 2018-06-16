@@ -31,3 +31,27 @@ because it is not used anymore.
   }
 }
 ```
+
+### Usage
+
+You SHOULD NOT use `@vue` tag anymore. 
+
+Instead, you should use `@vue-prop`, `@vue-data`, and `@vue-computed` like this:
+
+```vue
+<template>
+  <div>Hello world</div>
+</template>
+
+<script>
+/**
+* @vue-prop {Number} initialCounter
+* @vue-prop {Number} [step=1] Step
+* @vue-data {Number} counter - Current counter's value
+* @vue-computed {String} message A message
+*/
+export default {
+  // ...
+}
+</script>
+``` 

@@ -24,19 +24,18 @@
   },
   "homepage": "https://github.com/Kocal/jsdoc-vuejs#readme",
   "dependencies": {
-    "vue-template-compiler": "^2.4.4"
+    "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
     "coveralls": "^3.0.0",
+    "cypress": "^3.0.1",
     "eslint": "^4.6.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^22.1.1",
-    "jest-vue-preprocessor": "1.1.0",
-    "vue-template-es2015-compiler": "^1.6.0"
+    "jest": "^22.1.1"
   }
 }

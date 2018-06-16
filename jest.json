@@ -1,22 +1,15 @@
 {
   "bail": true,
   "verbose": true,
-  "moduleFileExtensions": [
-    "js",
-    "json",
-    "vue"
-  ],
-  "transform": {
-    "^.+\\.js$": "./node_modules/babel-jest",
-    ".*\\.(vue)$": "./node_modules/jest-vue-preprocessor"
-  },
   "collectCoverage": true,
   "coverageDirectory": "coverage",
   "coverageReporters": ["json", "lcov", "html", "text"],
   "collectCoverageFrom": [
-    "lib/*.js"
+    "lib/core/*.js"
   ],
-  "globals": {
-    "__DEV__": true
-  }
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/__fixtures__/",
+    "/cypress/"
+  ]
 }
