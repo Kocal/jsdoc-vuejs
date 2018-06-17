@@ -8,6 +8,7 @@
 - Added `@vue-data` tag (#59)
 - Added `@vue-computed` tag (#59)
 - Added rendering system to support more JSDoc templates (#59)
+- Rewrote default renderer (#64)
 
 ### Removals 
 
