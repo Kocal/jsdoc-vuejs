@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --config jest.json",
-    "lint": "eslint --ext .js lib __tests__ cypress"
+    "lint": "eslint --ext .js index.js config.js lib __tests__ cypress"
   },
   "repository": {
     "type": "git",
