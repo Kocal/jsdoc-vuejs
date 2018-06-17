@@ -1,9 +1,7 @@
-{
+module.exports = {
   "bail": true,
-  "verbose": true,
-  "collectCoverage": true,
-  "coverageDirectory": "coverage",
-  "coverageReporters": ["json", "lcov", "html", "text"],
+  "verbose": !process.env.CI,
+  "collectCoverage": !!process.env.CI,
   "collectCoverageFrom": [
     "lib/core/*.js"
   ],
