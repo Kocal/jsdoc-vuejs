@@ -1,8 +1,36 @@
 {
-  "extends": "standard",
+  "extends": [
+    "airbnb-base"
+  ],
   "env": {
     "es6": true,
     "node": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
+  },
+  "plugins": [
+    "cypress"
+  ],
+  "settings": {
+    "import/core-modules": [
+      "jsdoc/env"
+    ]
+  },
+  "rules": {
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "doclet", // _isVueFile, ...
+        "e" // for e.doclet
+      ]
+    }],
+    "no-underscore-dangle": ["error", {
+      "allow": [
+        "_isVueDoc",
+        "_vueProps",
+        "_vueData",
+        "_vueComputed"
+      ]
+    }]
   }
 }
