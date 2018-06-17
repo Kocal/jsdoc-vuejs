@@ -10,6 +10,7 @@
 - Added rendering system to support more JSDoc templates (#59)
 - Rewrote default renderer (#64)
 - Added [docstrap](https://github.com/docstrap/docstrap) renderer (#65)
+- Added [tui](https://github.com/nhnent/tui.jsdoc-template) renderer (#66)
 
 ### Removals 
 
