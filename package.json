@@ -18,7 +18,7 @@
     "vue file"
   ],
   "author": "Hugo Alliaume <kocal@live.fr>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kocal/jsdoc-vuejs/issues"
   },

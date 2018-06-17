@@ -71,3 +71,7 @@ Then run:
 $ yarn test
 # $ npm test
 ```
+
+## License
+
+MIT.
