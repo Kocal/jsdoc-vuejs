@@ -34,7 +34,5 @@ before_script:
 
 script:
   - yarn lint
-  - yarn test -i
+  - yarn test -i && yarn codecov
   - yarn cypress run --browser chrome --config watchForFileChanges=false
-
-after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
