@@ -11,6 +11,7 @@
 - Rewrote default renderer (#64)
 - Added [docstrap](https://github.com/docstrap/docstrap) renderer (#65)
 - Added [tui](https://github.com/nhnent/tui.jsdoc-template) renderer (#66)
+- Added [minami](https://github.com/nijikokun/minami) renderer (#67)
 
 ### Removals 
 
