@@ -9,7 +9,10 @@
 
 <script>
   /**
-   * @vue
+   * @vue-prop {Number} initialCounter
+   * @vue-prop {Number} [step=1] Step
+   * @vue-data {Number} counter - Current counter's value
+   * @vue-computed {String} message A message
    */
   export default {
     props: {

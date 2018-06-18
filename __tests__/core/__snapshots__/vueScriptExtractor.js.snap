@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.extractVueScript extract script 1`] = `
+"
+/**
+ * @vue-data {String} [foo=bar] Foo description
+ */
+export default {
+  name: 'Component',
+  data() {
+    return {
+      foo: 'bar'
+    }
+  }
+}
+"
+`;
