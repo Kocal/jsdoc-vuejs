@@ -119,10 +119,10 @@ you should generate documentation with all renderers:
 ```bash
 $ cd example
 $ yarn
-$ yarn jsdoc -d docs -c jsdoc.json
-$ yarn jsdoc -d docs-docstrap -c jsdoc.json -t ./node_modules/ink-docstrap/template
-$ yarn jsdoc -d docs-minami -c jsdoc.json -t ./node_modules/minami
-$ yarn jsdoc -d docs-tui -c jsdoc.json -t ./node_modules/tui-jsdoc-template
+$ yarn docs
+$ yarn docs:docstrap
+$ yarn docs:minami
+$ yarn docs:tui
 $ cd ..
 ```
 
