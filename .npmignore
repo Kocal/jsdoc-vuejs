@@ -1,0 +1,6 @@
+.idea/
+*.iml
+example/node_modules
+coverage/
+screenshots/
+*.log
