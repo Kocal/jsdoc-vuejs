@@ -1,5 +1,11 @@
 # Changelog
 
+## NEXT
+
+### Fixes
+
+- Fix regression on methods that are not displayed (#72)
+
 ## 2.0.0
 
 ### Features
