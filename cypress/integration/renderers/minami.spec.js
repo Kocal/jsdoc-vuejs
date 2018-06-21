@@ -103,4 +103,13 @@ describe('Renderers: minami', () => {
         expect($rowChildren.eq(2).html()).to.eq('A message');
       });
   });
+
+  it('should render methods properly', () => {
+    cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
+    cy.get('#decrement').contains('decrement()');
+    cy.get('#increment').contains('increment()');
+    cy.get('#showDialog').contains('showDialog(counter)');
+
+    cy.contains('created()').should('not.exist');
+  });
 });

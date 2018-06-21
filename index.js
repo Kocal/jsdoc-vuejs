@@ -38,6 +38,15 @@ exports.handlers = {
         // Remove meta for not rendering source for this doclet
         delete e.doclet.meta;
       }
+
+      if (e.doclet.kind === 'function') {
+        if (e.doclet.memberof.endsWith('.methods')) {
+          e.doclet.scope = 'instance';
+          e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
+        } else {
+          e.doclet.memberof = null; // don't include Vue hooks
+        }
+      }
     }
   },
 };
