@@ -1,9 +1,9 @@
 {
   "scripts": {
     "docs": "jsdoc -d docs -c jsdoc.js",
-    "docs:minami": "jsdoc -d docs-minami -c jsdoc.js -t ./node_modules/minami",
     "docs:tui": "jsdoc -d docs-tui -c jsdoc.js -t ./node_modules/tui-jsdoc-template"
     "docs:docstrap": "jsdoc -c jsdoc-docstrap.js",
+    "docs:minami": "jsdoc -c jsdoc-minami.js",
   },
   "dependencies": {
     "ink-docstrap": "^1.3.2",
