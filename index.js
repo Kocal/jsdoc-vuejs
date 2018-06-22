@@ -1,18 +1,25 @@
 const config = require('./config');
 const render = require('./lib/core/renderer');
 const extractVueScript = require('./lib/core/vueScriptExtractor');
+const seekExportDefaultLine = require('./lib/core/seekExportDefaultLine');
 const vueDataTag = require('./lib/tags/vue-data');
 const vuePropTag = require('./lib/tags/vue-prop');
 const vueComputedTag = require('./lib/tags/vue-computed');
 
+// Used to compute good line number for Vue methods
+const exportDefaultLines = {};
+const mainDocletLines = {};
+
 exports.handlers = {
   beforeParse(e) {
     if (/\.vue$/.test(e.filename)) {
+      exportDefaultLines[e.filename] = seekExportDefaultLine(e.source);
       e.source = extractVueScript(e.filename);
     }
   },
   newDoclet(e) {
     if (e.doclet.meta.filename.endsWith('.vue')) {
+      const fullPath = `${e.doclet.meta.path}/${e.doclet.meta.filename}`;
       const componentName = e.doclet.meta.filename.replace(/\.vue$/, '');
 
       // if (e.doclet.memberof === 'module.exports') {
@@ -22,6 +29,11 @@ exports.handlers = {
       // if (e.doclet.longname.startsWith('module.exports.')) {
       //   e.doclet.longname = e.doclet.longname.replace('module.exports.', componentName)
       // }
+
+      // The main doclet before `export default {}`
+      if (e.doclet.longname === 'module.exports') {
+        mainDocletLines[fullPath] = e.doclet.meta.lineno;
+      }
 
       if (e.doclet._isVueDoc) {
         const { renderer } = config['jsdoc-vuejs'];
@@ -43,6 +55,7 @@ exports.handlers = {
         if (e.doclet.memberof.endsWith('.methods')) {
           e.doclet.scope = 'instance';
           e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
+          e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
         } else {
           e.doclet.memberof = null; // don't include Vue hooks
         }
