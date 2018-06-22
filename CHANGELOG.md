@@ -1,5 +1,11 @@
 # Changelog
 
+## NEXT
+
+### Internals
+
+- In the folder `example`, write a JSDoc configuration file for each supported template (#74)
+
 ## 2.0.1
 
 ### Fixes
@@ -19,7 +25,7 @@
 - Added [tui](https://github.com/nhnent/tui.jsdoc-template) renderer (#66)
 - Added [minami](https://github.com/nijikokun/minami) renderer (#67)
 
-### Removals 
+### Removals
 
 - Removed `followImports` config (#53)
 - Removed configuration system (#53)
