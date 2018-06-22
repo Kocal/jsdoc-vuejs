@@ -2,6 +2,10 @@
 
 ## NEXT
 
+### Fixes
+
+- Fix documented methods source lines number (#73)
+
 ### Internals
 
 - In the folder `example`, write a JSDoc configuration file for each supported template (#74)
