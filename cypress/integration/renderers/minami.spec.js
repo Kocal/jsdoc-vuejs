@@ -106,9 +106,23 @@ describe('Renderers: minami', () => {
 
   it('should render methods properly', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
-    cy.get('#decrement').contains('decrement()');
-    cy.get('#increment').contains('increment()');
-    cy.get('#showDialog').contains('showDialog(counter)');
+    cy.get('#decrement')
+      .contains('decrement()')
+      .next('.description')
+      .next('.details')
+      .find('a[href="BetterCounter.vue.html#line43"]', 'line 43');
+
+    cy.get('#increment')
+      .contains('increment()')
+      .next('.description')
+      .next('.details')
+      .find('a[href="BetterCounter.vue.html#line36"]', 'line 36');
+
+    cy.get('#showDialog')
+      .contains('showDialog(counter)')
+      .next('.description')
+      .next('.details')
+      .find('a[href="BetterCounter.vue.html#line51"]', 'line 51');
 
     cy.contains('created()').should('not.exist');
   });
