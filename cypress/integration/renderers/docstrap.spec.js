@@ -102,9 +102,26 @@ describe('Renderers: docstrap', () => {
 
   it('should render methods properly', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
-    cy.get('#decrement').contains('decrement()');
-    cy.get('#increment').contains('increment()');
-    cy.get('#showDialog').contains('showDialog(counter)');
+    cy.get('#decrement')
+      .contains('decrement()')
+      .parent()
+      .next('dd')
+      .find('.details')
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-43"]', 'line 43');
+
+    cy.get('#increment')
+      .contains('increment()')
+      .parent()
+      .next('dd')
+      .find('.details')
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-36"]', 'line 36');
+
+    cy.get('#showDialog')
+      .contains('showDialog(counter)')
+      .parent()
+      .next('dd')
+      .find('.details')
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-51"]', 'line 51');
 
     cy.contains('created()').should('not.exist');
   });
