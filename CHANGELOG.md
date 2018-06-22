@@ -1,6 +1,6 @@
 # Changelog
 
-## NEXT
+## 2.0.2
 
 ### Fixes
 
