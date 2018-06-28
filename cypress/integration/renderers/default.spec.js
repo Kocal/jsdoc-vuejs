@@ -90,13 +90,23 @@ describe('Renderers: default', () => {
       .get('@table-data')
       .find('> tbody > tr')
       .then(($rows) => {
-        const $rowChildren = $rows.eq(0).children();
+        const $firstRowChildren = $rows.eq(0).children();
+        const $secondRowChildren = $rows.eq(1).children();
+        const $thirdRowChildren = $rows.eq(2).children();
 
-        expect($rows).to.have.length(1);
+        expect($rows).to.have.length(3);
 
-        expect($rowChildren.eq(0).html()).to.eq('<b>message</b>');
-        expect($rowChildren.eq(1).html()).to.eq('String');
-        expect($rowChildren.eq(2).html()).to.eq('A message');
+        expect($firstRowChildren.eq(0).html()).to.eq('<b>fooList</b>');
+        expect($firstRowChildren.eq(1).html()).to.eq('Array');
+        expect($firstRowChildren.eq(2).html()).to.eq('A list of foo');
+
+        expect($secondRowChildren.eq(0).html()).to.eq('<b>barList</b>');
+        expect($secondRowChildren.eq(1).html()).to.eq('Array');
+        expect($secondRowChildren.eq(2).html()).to.eq('A list of bar');
+
+        expect($thirdRowChildren.eq(0).html()).to.eq('<b>message</b>');
+        expect($thirdRowChildren.eq(1).html()).to.eq('String');
+        expect($thirdRowChildren.eq(2).html()).to.eq('A message');
       });
   });
 
