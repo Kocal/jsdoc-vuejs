@@ -46,7 +46,7 @@ exports.handlers = {
       }
 
       // Methods and hooks
-      if (e.doclet.kind === 'function') {
+      if (e.doclet.kind === 'function' && 'memberof' in e.doclet) {
         if (e.doclet.memberof.endsWith('.methods')) {
           e.doclet.scope = 'instance';
           e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed

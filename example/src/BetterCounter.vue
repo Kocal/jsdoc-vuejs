@@ -8,10 +8,14 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+
   /**
    * @vue-prop {Number} initialCounter
    * @vue-prop {Number} [step=1] Step
    * @vue-data {Number} counter - Current counter's value
+   * @vue-computed {Array} fooList - A list of foo
+   * @vue-computed {Array} barList - A list of bar
    * @vue-computed {String} message A message
    */
   export default {
@@ -25,6 +29,10 @@
       }
     },
     computed: {
+      ...mapState({
+        fooList: state => state.$_foo.fooList,
+        barList: state => state.$_foo.barList
+      }),
       message() {
         return `Counter: ${this.counter}`
       }
