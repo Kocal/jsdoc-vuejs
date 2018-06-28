@@ -122,19 +122,19 @@ describe('Renderers: minami', () => {
       .contains('decrement()')
       .next('.description')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line43"]', 'line 43');
+      .contains('a[href="BetterCounter.vue.html#line51"]', 'line 51');
 
     cy.get('#increment')
       .contains('increment()')
       .next('.description')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line36"]', 'line 36');
+      .contains('a[href="BetterCounter.vue.html#line44"]', 'line 44');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .next('.description')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line51"]', 'line 51');
+      .contains('a[href="BetterCounter.vue.html#line59"]', 'line 59');
 
     cy.contains('created()').should('not.exist');
   });

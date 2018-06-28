@@ -117,21 +117,21 @@ describe('Renderers: docstrap', () => {
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-43"]', 'line 43');
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-51"]', 'line 51');
 
     cy.get('#increment')
       .contains('increment()')
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-36"]', 'line 36');
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-44"]', 'line 44');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-51"]', 'line 51');
+      .find('a[href="BetterCounter.vue.html#sunlight-1-line-59"]', 'line 59');
 
     cy.contains('created()').should('not.exist');
   });
