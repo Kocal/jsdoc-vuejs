@@ -90,7 +90,6 @@ describe('Renderers: tui', () => {
       .get('@table-data')
       .find('> tbody > tr')
       .then(($rows) => {
-
         const $firstRowChildren = $rows.eq(0).children();
         const $secondRowChildren = $rows.eq(1).children();
         const $thirdRowChildren = $rows.eq(2).children();
