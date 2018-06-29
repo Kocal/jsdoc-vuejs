@@ -97,11 +97,11 @@ describe('Renderers: default', () => {
         expect($rows).to.have.length(3);
 
         expect($firstRowChildren.eq(0).html()).to.eq('<b>fooList</b>');
-        expect($firstRowChildren.eq(1).html()).to.eq('Array');
+        expect($firstRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
         expect($firstRowChildren.eq(2).html()).to.eq('A list of foo');
 
         expect($secondRowChildren.eq(0).html()).to.eq('<b>barList</b>');
-        expect($secondRowChildren.eq(1).html()).to.eq('Array');
+        expect($secondRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
         expect($secondRowChildren.eq(2).html()).to.eq('A list of bar');
 
         expect($thirdRowChildren.eq(0).html()).to.eq('<b>message</b>');

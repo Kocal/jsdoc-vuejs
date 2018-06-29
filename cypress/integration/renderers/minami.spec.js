@@ -101,12 +101,12 @@ describe('Renderers: minami', () => {
 
         expect($firstRowChildren.eq(0).html()).to.eq('fooList');
         expect($firstRowChildren.eq(0).attr('class')).to.eq('name');
-        expect($firstRowChildren.eq(1).html()).to.eq('Array');
+        expect($firstRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
         expect($firstRowChildren.eq(2).html()).to.eq('A list of foo');
 
         expect($secondRowChildren.eq(0).html()).to.eq('barList');
         expect($secondRowChildren.eq(0).attr('class')).to.eq('name');
-        expect($secondRowChildren.eq(1).html()).to.eq('Array');
+        expect($secondRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
         expect($secondRowChildren.eq(2).html()).to.eq('A list of bar');
 
         expect($thirdRowChildren.eq(0).html()).to.eq('message');
