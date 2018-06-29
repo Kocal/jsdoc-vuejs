@@ -75,12 +75,9 @@ describe('Renderers: tui', () => {
     cy
       .get('@table-computed')
       .find('> thead > tr > th')
-      .should(($headers) => {
-        expect($headers).to.have.length(3);
-        expect($headers.eq(0).text()).to.contains('Name');
-        expect($headers.eq(1).text()).to.contains('Type');
-        expect($headers.eq(2).text()).to.contains('Description');
-      });
+      .contains('Name')
+      .next().contains('Type')
+      .next().contains('Description');
 
     cy
       .get('@table-computed')
