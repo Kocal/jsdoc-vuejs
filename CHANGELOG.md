@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/Kocal/jsdoc-vuejs/compare/v2.0.4...v2.0.5) (2018-06-29)
+
+
+### Bug Fixes
+
+* **renderers:** types with `<` and `>` were rendered as HTML ([#85](https://github.com/Kocal/jsdoc-vuejs/issues/85)) ([d810412](https://github.com/Kocal/jsdoc-vuejs/commit/d810412)), closes [#84](https://github.com/Kocal/jsdoc-vuejs/issues/84)
+
+
+
 <a name="2.0.4"></a>
 ## [2.0.4](https://github.com/Kocal/jsdoc-vuejs/compare/v2.0.3...v2.0.4) (2018-06-28)
 
