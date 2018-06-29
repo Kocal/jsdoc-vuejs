@@ -14,8 +14,8 @@
    * @vue-prop {Number} initialCounter
    * @vue-prop {Number} [step=1] Step
    * @vue-data {Number} counter - Current counter's value
-   * @vue-computed {Array} fooList - A list of foo
-   * @vue-computed {Array} barList - A list of bar
+   * @vue-computed {Array.<String>} fooList - A list of foo
+   * @vue-computed {Array.<String>} barList - A list of bar
    * @vue-computed {String} message A message
    */
   export default {
