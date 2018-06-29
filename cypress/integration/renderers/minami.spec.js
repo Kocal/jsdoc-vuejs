@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 describe('Renderers: minami', () => {
   before(() => {
     cy.visit('/../../../example/docs-minami/BetterCounter.html');
@@ -11,14 +12,11 @@ describe('Renderers: minami', () => {
     cy
       .get('@table-props')
       .find('> thead > tr > th')
-      .should(($headers) => {
-        expect($headers).to.have.length(5);
-        expect($headers.eq(0).text()).to.contains('Name');
-        expect($headers.eq(1).text()).to.contains('Type');
-        expect($headers.eq(2).text()).to.contains('Default value');
-        expect($headers.eq(3).text()).to.contains('Required ?');
-        expect($headers.eq(4).text()).to.contains('Description');
-      });
+      .contains('Name')
+      .next().contains('Type')
+      .next().contains('Default value')
+      .next().contains('Required ?')
+      .next().contains('Description');
 
     cy
       .get('@table-props')
