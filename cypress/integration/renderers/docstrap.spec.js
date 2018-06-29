@@ -69,10 +69,10 @@ describe('Renderers: docstrap', () => {
 
   it('should renders computed correctly', () => {
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-data').should('have.class', 'table table-responsive table-hover table-striped');
+    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'table table-responsive table-hover table-striped');
 
     cy
-      .get('@table-data')
+      .get('@table-computed')
       .find('> thead > tr > th')
       .should(($headers) => {
         expect($headers).to.have.length(3);
@@ -82,7 +82,7 @@ describe('Renderers: docstrap', () => {
       });
 
     cy
-      .get('@table-data')
+      .get('@table-computed')
       .find('> tbody > tr')
       .then(($rows) => {
         const $firstRowChildren = $rows.eq(0).children();
