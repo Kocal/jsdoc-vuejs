@@ -47,13 +47,10 @@ describe('Renderers: docstrap', () => {
     cy
       .get('@table-data')
       .find('> thead > tr > th')
-      .should(($headers) => {
-        expect($headers).to.have.length(4);
-        expect($headers.eq(0).text()).to.contains('Name');
-        expect($headers.eq(1).text()).to.contains('Type');
-        expect($headers.eq(2).text()).to.contains('Default value');
-        expect($headers.eq(3).text()).to.contains('Description');
-      });
+      .contains('Name')
+      .next().contains('Type')
+      .next().contains('Default value')
+      .next().contains('Description');
 
     cy
       .get('@table-data')
