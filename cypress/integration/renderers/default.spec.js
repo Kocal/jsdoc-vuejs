@@ -55,6 +55,15 @@ describe('Renderers: default', () => {
   });
 
   it('should renders data correctly', () => {
+    const data = [
+      {
+        name: '<b>counter</b>',
+        type: 'Number',
+        defaultValue: '-',
+        description: "Current counter's value",
+      },
+    ];
+
     cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data');
     cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data');
 
@@ -70,14 +79,17 @@ describe('Renderers: default', () => {
       .get('@table-data')
       .find('> tbody > tr')
       .then(($rows) => {
-        const $rowChildren = $rows.eq(0).children();
-
         expect($rows).to.have.length(1);
 
-        expect($rowChildren.eq(0).html()).to.eq('<b>counter</b>');
-        expect($rowChildren.eq(1).html()).to.eq('Number');
-        expect($rowChildren.eq(2).html()).to.eq('-');
-        expect($rowChildren.eq(3).html()).to.eq('Current counter\'s value');
+        data.forEach((d, i) => {
+          const $row = $rows.eq(i);
+          const $children = $row.children();
+
+          expect($children.eq(0).html()).to.eq(d.name);
+          expect($children.eq(1).html()).to.eq(d.type);
+          expect($children.eq(2).html()).to.eq(d.defaultValue);
+          expect($children.eq(3).html()).to.eq(d.description);
+        });
       });
   });
 
