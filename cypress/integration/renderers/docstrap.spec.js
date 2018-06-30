@@ -1,10 +1,28 @@
 /* eslint-disable newline-per-chained-call */
+
 describe('Renderers: docstrap', () => {
   before(() => {
     cy.visit('/../../../example/docs-docstrap/BetterCounter.html');
   });
 
   it('should renders props correctly', () => {
+    const props = [
+      {
+        name: '<b>initialCounter</b>',
+        type: 'Number',
+        defaultValue: '-',
+        required: '<b>Yes</b>',
+        description: '-',
+      },
+      {
+        name: '<b>step</b>',
+        type: 'Number',
+        defaultValue: '<code>1</code>',
+        required: 'No',
+        description: 'Step',
+      },
+    ];
+
     cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props').should('have.class', 'subsection-title');
     cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'table table-responsive table-hover table-striped');
 
@@ -21,22 +39,18 @@ describe('Renderers: docstrap', () => {
       .get('@table-props')
       .find('> tbody > tr')
       .then(($rows) => {
-        const $firstRowChildren = $rows.eq(0).children();
-        const $secondRowChildren = $rows.eq(1).children();
-
         expect($rows).to.have.length(2);
 
-        expect($firstRowChildren.eq(0).html()).to.eq('<b>initialCounter</b>');
-        expect($firstRowChildren.eq(1).html()).to.eq('Number');
-        expect($firstRowChildren.eq(2).html()).to.eq('-');
-        expect($firstRowChildren.eq(3).html()).to.eq('<b>Yes</b>');
-        expect($firstRowChildren.eq(4).html()).to.eq('-');
+        props.forEach((prop, i) => {
+          const $row = $rows.eq(i);
+          const $children = $row.children();
 
-        expect($secondRowChildren.eq(0).html()).to.eq('<b>step</b>');
-        expect($secondRowChildren.eq(1).html()).to.eq('Number');
-        expect($secondRowChildren.eq(2).html()).to.eq('<code>1</code>');
-        expect($secondRowChildren.eq(3).html()).to.eq('No');
-        expect($secondRowChildren.eq(4).html()).to.eq('Step');
+          expect($children.eq(0).html()).to.eq(prop.name);
+          expect($children.eq(1).html()).to.eq(prop.type);
+          expect($children.eq(2).html()).to.eq(prop.defaultValue);
+          expect($children.eq(3).html()).to.eq(prop.required);
+          expect($children.eq(4).html()).to.eq(prop.description);
+        });
       });
   });
 
