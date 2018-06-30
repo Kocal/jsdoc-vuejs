@@ -5,7 +5,6 @@ describe('Renderers: minami', () => {
     cy.visit('/../../../example/docs-minami/BetterCounter.html');
   });
 
-
   it('should renders props correctly', () => {
     const props = [
       {
@@ -96,6 +95,12 @@ describe('Renderers: minami', () => {
   });
 
   it('should renders computed correctly', () => {
+    const computeds = [
+      { name: 'fooList', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
+      { name: 'barList', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
+      { name: 'message', type: 'String', description: 'A message' },
+    ];
+
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
     cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'params');
 
@@ -110,26 +115,17 @@ describe('Renderers: minami', () => {
       .get('@table-computed')
       .find('> tbody > tr')
       .then(($rows) => {
-        const $firstRowChildren = $rows.eq(0).children();
-        const $secondRowChildren = $rows.eq(1).children();
-        const $thirdRowChildren = $rows.eq(2).children();
-
         expect($rows).to.have.length(3);
 
-        expect($firstRowChildren.eq(0).html()).to.eq('fooList');
-        expect($firstRowChildren.eq(0).attr('class')).to.eq('name');
-        expect($firstRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
-        expect($firstRowChildren.eq(2).html()).to.eq('A list of foo');
+        computeds.forEach((computed, i) => {
+          const $row = $rows.eq(i);
+          const $children = $row.children();
 
-        expect($secondRowChildren.eq(0).html()).to.eq('barList');
-        expect($secondRowChildren.eq(0).attr('class')).to.eq('name');
-        expect($secondRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
-        expect($secondRowChildren.eq(2).html()).to.eq('A list of bar');
-
-        expect($thirdRowChildren.eq(0).html()).to.eq('message');
-        expect($thirdRowChildren.eq(0).attr('class')).to.eq('name');
-        expect($thirdRowChildren.eq(1).html()).to.eq('String');
-        expect($thirdRowChildren.eq(2).html()).to.eq('A message');
+          expect($children.eq(0).html()).to.eq(computed.name);
+          expect($children.eq(0).attr('class')).to.eq('name');
+          expect($children.eq(1).html()).to.eq(computed.type);
+          expect($children.eq(2).html()).to.eq(computed.description);
+        });
       });
   });
 

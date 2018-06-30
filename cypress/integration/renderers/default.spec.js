@@ -94,6 +94,12 @@ describe('Renderers: default', () => {
   });
 
   it('should renders computed correctly', () => {
+    const computeds = [
+      { name: '<b>fooList</b>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
+      { name: '<b>barList</b>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
+      { name: '<b>message</b>', type: 'String', description: 'A message' },
+    ];
+
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed');
     cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed');
 
@@ -108,23 +114,16 @@ describe('Renderers: default', () => {
       .get('@table-computed')
       .find('> tbody > tr')
       .then(($rows) => {
-        const $firstRowChildren = $rows.eq(0).children();
-        const $secondRowChildren = $rows.eq(1).children();
-        const $thirdRowChildren = $rows.eq(2).children();
-
         expect($rows).to.have.length(3);
 
-        expect($firstRowChildren.eq(0).html()).to.eq('<b>fooList</b>');
-        expect($firstRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
-        expect($firstRowChildren.eq(2).html()).to.eq('A list of foo');
+        computeds.forEach((computed, i) => {
+          const $row = $rows.eq(i);
+          const $children = $row.children();
 
-        expect($secondRowChildren.eq(0).html()).to.eq('<b>barList</b>');
-        expect($secondRowChildren.eq(1).html()).to.eq('Array.&lt;String&gt;');
-        expect($secondRowChildren.eq(2).html()).to.eq('A list of bar');
-
-        expect($thirdRowChildren.eq(0).html()).to.eq('<b>message</b>');
-        expect($thirdRowChildren.eq(1).html()).to.eq('String');
-        expect($thirdRowChildren.eq(2).html()).to.eq('A message');
+          expect($children.eq(0).html()).to.eq(computed.name);
+          expect($children.eq(1).html()).to.eq(computed.type);
+          expect($children.eq(2).html()).to.eq(computed.description);
+        });
       });
   });
 
