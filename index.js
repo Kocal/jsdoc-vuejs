@@ -28,6 +28,12 @@ exports.handlers = {
         e.doclet.name = componentName;
         e.doclet.alias = componentName;
         e.doclet.longname = `module:${componentName}`;
+      }
+
+      if (
+        !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
+        && e.doclet.longname.startsWith('module:')
+      ) {
         mainDocletLines[fullPath] = e.doclet.meta.lineno;
       }
 
