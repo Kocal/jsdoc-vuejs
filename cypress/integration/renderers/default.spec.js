@@ -2,7 +2,7 @@
 
 describe('Renderers: default', () => {
   before(() => {
-    cy.visit('/../../../example/docs/BetterCounter.html');
+    cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
   });
 
   it('should renders props correctly', () => {
@@ -134,13 +134,13 @@ describe('Renderers: default', () => {
       .contains('decrement()')
       .next('.description')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line51"]', 'line 51');
+      .contains('a[href="better-components_BetterCounter.vue.html#line52"]', 'line 52');
 
     cy.get('#increment')
       .contains('increment()')
       .next('.description')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line44"]', 'line 44');
+      .contains('a[href="better-components_BetterCounter.vue.html#line45"]', 'line 45');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
@@ -148,7 +148,7 @@ describe('Renderers: default', () => {
       .next('h5')
       .next('.params')
       .next('.details')
-      .find('a[href="BetterCounter.vue.html#line59"]', 'line 59');
+      .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
 
     cy.contains('created()').should('not.exist');
   });

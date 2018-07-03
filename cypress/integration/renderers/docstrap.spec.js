@@ -2,7 +2,7 @@
 
 describe('Renderers: docstrap', () => {
   before(() => {
-    cy.visit('/../../../example/docs-docstrap/BetterCounter.html');
+    cy.visit('/../../../example/docs-docstrap//module-better-components_BetterCounter.html');
   });
 
   it('should renders props correctly', () => {
@@ -134,21 +134,21 @@ describe('Renderers: docstrap', () => {
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-51"]', 'line 51');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-52"]', 'line 52');
 
     cy.get('#increment')
       .contains('increment()')
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-44"]', 'line 44');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-45"]', 'line 45');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .parent()
       .next('dd')
       .find('.details')
-      .find('a[href="BetterCounter.vue.html#sunlight-1-line-59"]', 'line 59');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-60"]', 'line 60');
 
     cy.contains('created()').should('not.exist');
   });
