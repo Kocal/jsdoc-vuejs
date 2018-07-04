@@ -5,6 +5,16 @@ describe('Renderers: minami', () => {
     cy.visit('/../../../example/docs-minami/module-better-components_BetterCounter.html');
   });
 
+  it('should renders module name correctly', () => {
+    cy
+      .get('.page-title')
+      .contains('better-components/BetterCounter');
+
+    cy
+      .get('.nav-item-name a[href="module-better-components_BetterCounter.html"]')
+      .contains('better-components/BetterCounter');
+  });
+
   it('should renders props correctly', () => {
     const props = [
       {

@@ -5,6 +5,20 @@ describe('Renderers: tui', () => {
     cy.visit('/../../../example/docs-tui/module-better-components_BetterCounter.html');
   });
 
+  it('should renders module name correctly', () => {
+    cy
+      .get('.title')
+      .contains('Module: better-components/BetterCounter');
+
+    cy
+      .get('h2')
+      .contains('better-components/BetterCounter');
+
+    cy
+      .get('nav.lnb .lnb-api li a[href="module-better-components_BetterCounter.html"]')
+      .contains('better-components/BetterCounter');
+  });
+
   it('should renders props correctly', () => {
     const props = [
       {

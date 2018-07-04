@@ -5,6 +5,16 @@ describe('Renderers: default', () => {
     cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
   });
 
+  it('should renders module name correctly', () => {
+    cy
+      .get('.page-title')
+      .contains('Module: better-components/BetterCounter');
+
+    cy
+      .get('nav a[href="module-better-components_BetterCounter.html"]')
+      .contains('better-components/BetterCounter');
+  });
+
   it('should renders props correctly', () => {
     const props = [
       {
