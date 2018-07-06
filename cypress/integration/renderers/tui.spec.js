@@ -2,7 +2,21 @@
 
 describe('Renderers: tui', () => {
   before(() => {
-    cy.visit('/../../../example/docs-tui/BetterCounter.html');
+    cy.visit('/../../../example/docs-tui/module-better-components_BetterCounter.html');
+  });
+
+  it('should renders module name correctly', () => {
+    cy
+      .get('.title')
+      .contains('Module: better-components/BetterCounter');
+
+    cy
+      .get('h2')
+      .contains('better-components/BetterCounter');
+
+    cy
+      .get('nav.lnb .lnb-api li a[href="module-better-components_BetterCounter.html"]')
+      .contains('better-components/BetterCounter');
   });
 
   it('should renders props correctly', () => {
@@ -131,15 +145,15 @@ describe('Renderers: tui', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
     cy.get('#decrement')
       .contains('decrement()')
-      .contains('a[href="BetterCounter.vue.html#line51"]', 'line 51');
+      .contains('a[href="better-components_BetterCounter.vue.html#line52"]', 'line 52');
 
     cy.get('#increment')
       .contains('increment()')
-      .contains('a[href="BetterCounter.vue.html#line44"]', 'line 44');
+      .contains('a[href="better-components_BetterCounter.vue.html#line45"]', 'line 45');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
-      .contains('a[href="BetterCounter.vue.html#line59"]', 'line 59');
+      .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
 
     cy.contains('created()').should('not.exist');
   });

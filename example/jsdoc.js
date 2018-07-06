@@ -6,6 +6,7 @@ module.exports = {
   source: {
     include: [
       'src/',
+      'src/better-components',
       'README.md',
     ],
     includePattern: '\\.(vue|js)$',

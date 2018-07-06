@@ -24,6 +24,16 @@ exports.handlers = {
 
       // The main doclet before `export default {}`
       if (e.doclet.longname === 'module.exports') {
+        e.doclet.kind = 'module';
+        e.doclet.name = componentName;
+        e.doclet.alias = componentName;
+        e.doclet.longname = `module:${componentName}`;
+      }
+
+      if (
+        !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
+        && e.doclet.longname.startsWith('module:')
+      ) {
         mainDocletLines[fullPath] = e.doclet.meta.lineno;
       }
 
@@ -35,10 +45,6 @@ exports.handlers = {
         const data = e.doclet._vueData || [];
         const computed = e.doclet._vueComputed || [];
 
-        e.doclet.kind = 'module';
-        e.doclet.name = componentName;
-        e.doclet.alias = componentName;
-        e.doclet.longname = componentName;
         e.doclet.description = render(renderer, e.doclet.description || '', props, data, computed);
 
         // Remove meta for not rendering source for this doclet
