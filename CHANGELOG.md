@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/Kocal/jsdoc-vuejs/compare/v2.0.5...v2.1.0) (2018-07-06)
+
+
+### Features
+
+* Custom module names ([#87](https://github.com/Kocal/jsdoc-vuejs/issues/87)) ([f2e673a](https://github.com/Kocal/jsdoc-vuejs/commit/f2e673a)), closes [#83](https://github.com/Kocal/jsdoc-vuejs/issues/83)
+
+
+
 <a name="2.0.5"></a>
 ## [2.0.5](https://github.com/Kocal/jsdoc-vuejs/compare/v2.0.4...v2.0.5) (2018-06-29)
 
