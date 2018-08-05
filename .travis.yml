@@ -17,8 +17,8 @@ before_install:
   - npm i -g yarn
 
 install:
-  - yarn
-  - cd example && yarn && cd ..
+  - yarn install --frozen-lockfile
+  - cd example && yarn install --frozen-lockfile && cd ..
   - yarn cypress install
 
 before_script:
