@@ -32,4 +32,4 @@ before_script:
 script:
   - yarn lint
   - yarn test -i && yarn codecov
-  - yarn cypress run --config watchForFileChanges=false
+  - yarn cypress run --config watchForFileChanges=false,video=false
