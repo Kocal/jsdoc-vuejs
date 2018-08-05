@@ -22,8 +22,6 @@ install:
   - yarn cypress install
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
   - cd example
   - yarn docs
   - yarn docs:docstrap
@@ -34,4 +32,4 @@ before_script:
 script:
   - yarn lint
   - yarn test -i && yarn codecov
-  - yarn cypress run --browser chrome --config watchForFileChanges=false
+  - yarn cypress run --config watchForFileChanges=false
