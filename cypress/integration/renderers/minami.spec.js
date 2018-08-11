@@ -3,6 +3,7 @@
 describe('Renderers: minami', () => {
   before(() => {
     cy.visit('/../../../example/docs-minami/module-better-components_BetterCounter.html');
+    cy.screenshot();
   });
 
   it('should renders module name correctly', () => {

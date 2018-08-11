@@ -3,6 +3,7 @@
 describe('Renderers: docstrap', () => {
   before(() => {
     cy.visit('/../../../example/docs-docstrap//module-better-components_BetterCounter.html');
+    cy.screenshot();
   });
 
   it('should renders module name correctly', () => {
