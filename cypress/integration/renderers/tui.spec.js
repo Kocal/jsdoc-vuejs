@@ -3,6 +3,7 @@
 describe('Renderers: tui', () => {
   before(() => {
     cy.visit('/../../../example/docs-tui/module-better-components_BetterCounter.html');
+    cy.screenshot();
   });
 
   it('should renders module name correctly', () => {

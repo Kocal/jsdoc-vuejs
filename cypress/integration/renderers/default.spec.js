@@ -3,6 +3,7 @@
 describe('Renderers: default', () => {
   before(() => {
     cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
+    cy.screenshot();
   });
 
   it('should renders module name correctly', () => {
