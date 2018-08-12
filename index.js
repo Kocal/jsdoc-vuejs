@@ -50,7 +50,6 @@ exports.handlers = {
         render(template, data, (err, str) => {
           if (err) throw err;
 
-          console.log(str);
           e.doclet.description = str;
         });
 
