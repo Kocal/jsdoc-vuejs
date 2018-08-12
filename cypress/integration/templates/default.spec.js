@@ -1,6 +1,6 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: default', () => {
+describe('Template: default', () => {
   before(() => {
     cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
     cy.screenshot();
@@ -19,14 +19,14 @@ describe('Renderers: default', () => {
   it('should renders props correctly', () => {
     const props = [
       {
-        name: '<b>initialCounter</b>',
+        name: '<code>initialCounter</code>',
         type: 'Number',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: '<b>step</b>',
+        name: '<code>step</code>',
         type: 'Number',
         defaultValue: '<code>1</code>',
         required: 'No',
@@ -43,7 +43,7 @@ describe('Renderers: default', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -68,7 +68,7 @@ describe('Renderers: default', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: '<b>counter</b>',
+        name: '<code>counter</code>',
         type: 'Number',
         defaultValue: '-',
         description: "Current counter's value",
@@ -106,9 +106,9 @@ describe('Renderers: default', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: '<b>fooList</b>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: '<b>barList</b>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: '<b>message</b>', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
+      { name: '<code>message</code>', type: 'String', description: 'A message' },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed');
