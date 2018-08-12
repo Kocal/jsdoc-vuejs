@@ -1,33 +1,33 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: docstrap', () => {
+describe('Template: minami', () => {
   before(() => {
-    cy.visit('/../../../example/docs-docstrap//module-better-components_BetterCounter.html');
+    cy.visit('/../../../example/docs-minami/module-better-components_BetterCounter.html');
     cy.screenshot();
   });
 
   it('should renders module name correctly', () => {
     cy
       .get('.page-title')
-      .contains('Module: better-components/BetterCounter');
+      .contains('better-components/BetterCounter');
 
     cy
-      .get('.nav .dropdown a[href="module-better-components_BetterCounter.html"]')
+      .get('.nav-item-name a[href="module-better-components_BetterCounter.html"]')
       .contains('better-components/BetterCounter');
   });
 
   it('should renders props correctly', () => {
     const props = [
       {
-        name: '<b>initialCounter</b>',
-        type: 'Number',
+        name: '<code>initialCounter</code>',
+        type: '<code>Number</code>',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: '<b>step</b>',
-        type: 'Number',
+        name: '<code>step</code>',
+        type: '<code>Number</code>',
         defaultValue: '<code>1</code>',
         required: 'No',
         description: 'Step',
@@ -35,7 +35,7 @@ describe('Renderers: docstrap', () => {
     ];
 
     cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'table table-responsive table-hover table-striped');
+    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'params');
 
     cy
       .get('@table-props')
@@ -43,7 +43,7 @@ describe('Renderers: docstrap', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -57,6 +57,7 @@ describe('Renderers: docstrap', () => {
           const $children = $row.children();
 
           expect($children.eq(0).html()).to.eq(prop.name);
+          expect($children.eq(0).attr('class')).to.eq('name');
           expect($children.eq(1).html()).to.eq(prop.type);
           expect($children.eq(2).html()).to.eq(prop.defaultValue);
           expect($children.eq(3).html()).to.eq(prop.required);
@@ -68,15 +69,15 @@ describe('Renderers: docstrap', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: '<b>counter</b>',
-        type: 'Number',
+        name: '<code>counter</code>',
+        type: '<code>Number</code>',
         defaultValue: '-',
         description: "Current counter's value",
       },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'table table-responsive table-hover table-striped');
+    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'params');
 
     cy
       .get('@table-data')
@@ -106,13 +107,13 @@ describe('Renderers: docstrap', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: '<b>fooList</b>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: '<b>barList</b>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: '<b>message</b>', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: '<code>Array.&lt;String&gt;</code>', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: '<code>Array.&lt;String&gt;</code>', description: 'A list of bar' },
+      { name: '<code>message</code>', type: '<code>String</code>', description: 'A message' },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'table table-responsive table-hover table-striped');
+    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'params');
 
     cy
       .get('@table-computed')
@@ -132,6 +133,7 @@ describe('Renderers: docstrap', () => {
           const $children = $row.children();
 
           expect($children.eq(0).html()).to.eq(computed.name);
+          expect($children.eq(0).attr('class')).to.eq('name');
           expect($children.eq(1).html()).to.eq(computed.type);
           expect($children.eq(2).html()).to.eq(computed.description);
         });
@@ -142,24 +144,21 @@ describe('Renderers: docstrap', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
     cy.get('#decrement')
       .contains('decrement()')
-      .parent()
-      .next('dd')
-      .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-52"]', 'line 52');
+      .next('.description')
+      .next('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#line52"]', 'line 52');
 
     cy.get('#increment')
       .contains('increment()')
-      .parent()
-      .next('dd')
-      .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-45"]', 'line 45');
+      .next('.description')
+      .next('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#line45"]', 'line 45');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
-      .parent()
-      .next('dd')
-      .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-60"]', 'line 60');
+      .next('.description')
+      .next('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
 
     cy.contains('created()').should('not.exist');
   });

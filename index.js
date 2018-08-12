@@ -40,12 +40,18 @@ exports.handlers = {
       // It can be the main doclet before `export default {}`
       // with at least one `@vue-*` tag
       if (e.doclet._isVueDoc) {
-        const { renderer } = config['jsdoc-vuejs'];
-        const props = e.doclet._vueProps || [];
-        const data = e.doclet._vueData || [];
-        const computed = e.doclet._vueComputed || [];
+        const { template } = config['jsdoc-vuejs'];
+        const data = {
+          props: e.doclet._vueProps || [],
+          data: e.doclet._vueData || [],
+          computed: e.doclet._vueComputed || [],
+        };
 
-        e.doclet.description = render(renderer, e.doclet.description || '', props, data, computed);
+        render(template, data, (err, str) => {
+          if (err) throw err;
+
+          e.doclet.description = str;
+        });
 
         // Remove meta for not rendering source for this doclet
         delete e.doclet.meta;

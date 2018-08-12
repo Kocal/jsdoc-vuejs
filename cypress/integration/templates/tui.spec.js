@@ -1,6 +1,6 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: tui', () => {
+describe('Template: tui', () => {
   before(() => {
     cy.visit('/../../../example/docs-tui/module-better-components_BetterCounter.html');
     cy.screenshot();
@@ -23,15 +23,15 @@ describe('Renderers: tui', () => {
   it('should renders props correctly', () => {
     const props = [
       {
-        name: '<b>initialCounter</b>',
-        type: 'Number',
+        name: '<code>initialCounter</code>',
+        type: '<span class="param-type">Number</span>',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: '<b>step</b>',
-        type: 'Number',
+        name: '<code>step</code>',
+        type: '<span class="param-type">Number</span>',
         defaultValue: '<code>1</code>',
         required: 'No',
         description: 'Step',
@@ -39,7 +39,7 @@ describe('Renderers: tui', () => {
     ];
 
     cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'tui-grid-table');
+    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'params');
 
     cy
       .get('@table-props')
@@ -47,7 +47,7 @@ describe('Renderers: tui', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -72,15 +72,15 @@ describe('Renderers: tui', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: '<b>counter</b>',
-        type: 'Number',
+        name: '<code>counter</code>',
+        type: '<span class="param-type">Number</span>',
         defaultValue: '-',
         description: "Current counter's value",
       },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'tui-grid-table');
+    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'params');
 
     cy
       .get('@table-data')
@@ -110,13 +110,13 @@ describe('Renderers: tui', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: '<b>fooList</b>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: '<b>barList</b>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: '<b>message</b>', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: '<span class="param-type">Array.&lt;String&gt;</span>', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: '<span class="param-type">Array.&lt;String&gt;</span>', description: 'A list of bar' },
+      { name: '<code>message</code>', type: '<span class="param-type">String</span>', description: 'A message' },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'tui-grid-table');
+    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'params');
 
     cy
       .get('@table-computed')

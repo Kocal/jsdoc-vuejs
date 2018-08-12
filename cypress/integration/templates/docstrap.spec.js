@@ -1,8 +1,8 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: default', () => {
+describe('Template: docstrap', () => {
   before(() => {
-    cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
+    cy.visit('/../../../example/docs-docstrap//module-better-components_BetterCounter.html');
     cy.screenshot();
   });
 
@@ -12,21 +12,21 @@ describe('Renderers: default', () => {
       .contains('Module: better-components/BetterCounter');
 
     cy
-      .get('nav a[href="module-better-components_BetterCounter.html"]')
+      .get('.nav .dropdown a[href="module-better-components_BetterCounter.html"]')
       .contains('better-components/BetterCounter');
   });
 
   it('should renders props correctly', () => {
     const props = [
       {
-        name: '<b>initialCounter</b>',
+        name: '<code>initialCounter</code>',
         type: 'Number',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: '<b>step</b>',
+        name: '<code>step</code>',
         type: 'Number',
         defaultValue: '<code>1</code>',
         required: 'No',
@@ -34,8 +34,8 @@ describe('Renderers: default', () => {
       },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props');
-    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props');
+    cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props').should('have.class', 'subsection-title');
+    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'table table-responsive table-hover table-striped');
 
     cy
       .get('@table-props')
@@ -43,7 +43,7 @@ describe('Renderers: default', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -68,15 +68,15 @@ describe('Renderers: default', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: '<b>counter</b>',
+        name: '<code>counter</code>',
         type: 'Number',
         defaultValue: '-',
         description: "Current counter's value",
       },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data');
-    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data');
+    cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data').should('have.class', 'subsection-title');
+    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'table table-responsive table-hover table-striped');
 
     cy
       .get('@table-data')
@@ -106,13 +106,13 @@ describe('Renderers: default', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: '<b>fooList</b>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: '<b>barList</b>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: '<b>message</b>', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
+      { name: '<code>message</code>', type: 'String', description: 'A message' },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed');
-    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed');
+    cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
+    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'table table-responsive table-hover table-striped');
 
     cy
       .get('@table-computed')
@@ -140,26 +140,26 @@ describe('Renderers: default', () => {
 
   it('should render methods properly', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
-
     cy.get('#decrement')
       .contains('decrement()')
-      .next('.description')
-      .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line52"]', 'line 52');
+      .parent()
+      .next('dd')
+      .find('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-52"]', 'line 52');
 
     cy.get('#increment')
       .contains('increment()')
-      .next('.description')
-      .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line45"]', 'line 45');
+      .parent()
+      .next('dd')
+      .find('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-45"]', 'line 45');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
-      .next('.description')
-      .next('h5')
-      .next('.params')
-      .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
+      .parent()
+      .next('dd')
+      .find('.details')
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-60"]', 'line 60');
 
     cy.contains('created()').should('not.exist');
   });

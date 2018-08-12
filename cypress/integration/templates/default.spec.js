@@ -1,32 +1,32 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: minami', () => {
+describe('Template: default', () => {
   before(() => {
-    cy.visit('/../../../example/docs-minami/module-better-components_BetterCounter.html');
+    cy.visit('/../../../example/docs/module-better-components_BetterCounter.html');
     cy.screenshot();
   });
 
   it('should renders module name correctly', () => {
     cy
       .get('.page-title')
-      .contains('better-components/BetterCounter');
+      .contains('Module: better-components/BetterCounter');
 
     cy
-      .get('.nav-item-name a[href="module-better-components_BetterCounter.html"]')
+      .get('nav a[href="module-better-components_BetterCounter.html"]')
       .contains('better-components/BetterCounter');
   });
 
   it('should renders props correctly', () => {
     const props = [
       {
-        name: 'initialCounter',
+        name: '<code>initialCounter</code>',
         type: 'Number',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: 'step',
+        name: '<code>step</code>',
         type: 'Number',
         defaultValue: '<code>1</code>',
         required: 'No',
@@ -34,8 +34,8 @@ describe('Renderers: minami', () => {
       },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props').should('have.class', 'params');
+    cy.get('[data-jsdoc-vuejs="section-props"]').contains('Props');
+    cy.get('[data-jsdoc-vuejs="table-props"]').as('table-props');
 
     cy
       .get('@table-props')
@@ -43,7 +43,7 @@ describe('Renderers: minami', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -57,7 +57,6 @@ describe('Renderers: minami', () => {
           const $children = $row.children();
 
           expect($children.eq(0).html()).to.eq(prop.name);
-          expect($children.eq(0).attr('class')).to.eq('name');
           expect($children.eq(1).html()).to.eq(prop.type);
           expect($children.eq(2).html()).to.eq(prop.defaultValue);
           expect($children.eq(3).html()).to.eq(prop.required);
@@ -69,15 +68,15 @@ describe('Renderers: minami', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: 'counter',
+        name: '<code>counter</code>',
         type: 'Number',
         defaultValue: '-',
         description: "Current counter's value",
       },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data').should('have.class', 'params');
+    cy.get('[data-jsdoc-vuejs="section-data"]').contains('Data');
+    cy.get('[data-jsdoc-vuejs="table-data"]').as('table-data');
 
     cy
       .get('@table-data')
@@ -107,13 +106,13 @@ describe('Renderers: minami', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: 'fooList', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: 'barList', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: 'message', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
+      { name: '<code>message</code>', type: 'String', description: 'A message' },
     ];
 
-    cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
-    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed').should('have.class', 'params');
+    cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed');
+    cy.get('[data-jsdoc-vuejs="table-computed"]').as('table-computed');
 
     cy
       .get('@table-computed')
@@ -133,7 +132,6 @@ describe('Renderers: minami', () => {
           const $children = $row.children();
 
           expect($children.eq(0).html()).to.eq(computed.name);
-          expect($children.eq(0).attr('class')).to.eq('name');
           expect($children.eq(1).html()).to.eq(computed.type);
           expect($children.eq(2).html()).to.eq(computed.description);
         });
@@ -142,6 +140,7 @@ describe('Renderers: minami', () => {
 
   it('should render methods properly', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
+
     cy.get('#decrement')
       .contains('decrement()')
       .next('.description')
@@ -157,6 +156,8 @@ describe('Renderers: minami', () => {
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .next('.description')
+      .next('h5')
+      .next('.params')
       .next('.details')
       .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
 
