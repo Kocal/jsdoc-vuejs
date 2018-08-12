@@ -1,6 +1,6 @@
 /* eslint-disable newline-per-chained-call */
 
-describe('Renderers: minami', () => {
+describe('Template: minami', () => {
   before(() => {
     cy.visit('/../../../example/docs-minami/module-better-components_BetterCounter.html');
     cy.screenshot();
@@ -19,15 +19,15 @@ describe('Renderers: minami', () => {
   it('should renders props correctly', () => {
     const props = [
       {
-        name: 'initialCounter',
-        type: 'Number',
+        name: '<code>initialCounter</code>',
+        type: '<code>Number</code>',
         defaultValue: '-',
         required: '<b>Yes</b>',
         description: '-',
       },
       {
-        name: 'step',
-        type: 'Number',
+        name: '<code>step</code>',
+        type: '<code>Number</code>',
         defaultValue: '<code>1</code>',
         required: 'No',
         description: 'Step',
@@ -43,7 +43,7 @@ describe('Renderers: minami', () => {
       .contains('Name')
       .next().contains('Type')
       .next().contains('Default value')
-      .next().contains('Required ?')
+      .next().contains('Required?')
       .next().contains('Description');
 
     cy
@@ -69,8 +69,8 @@ describe('Renderers: minami', () => {
   it('should renders data correctly', () => {
     const data = [
       {
-        name: 'counter',
-        type: 'Number',
+        name: '<code>counter</code>',
+        type: '<code>Number</code>',
         defaultValue: '-',
         description: "Current counter's value",
       },
@@ -107,9 +107,9 @@ describe('Renderers: minami', () => {
 
   it('should renders computed correctly', () => {
     const computeds = [
-      { name: 'fooList', type: 'Array.&lt;String&gt;', description: 'A list of foo' },
-      { name: 'barList', type: 'Array.&lt;String&gt;', description: 'A list of bar' },
-      { name: 'message', type: 'String', description: 'A message' },
+      { name: '<code>fooList</code>', type: '<code>Array.&lt;String&gt;</code>', description: 'A list of foo' },
+      { name: '<code>barList</code>', type: '<code>Array.&lt;String&gt;</code>', description: 'A list of bar' },
+      { name: '<code>message</code>', type: '<code>String</code>', description: 'A message' },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-computed"]').contains('Computed').should('have.class', 'subsection-title');
