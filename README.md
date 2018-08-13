@@ -89,19 +89,19 @@ Feel free to open an issue/pull request if your template is not supported!
 
 ### Default
 
-![](./screenshots/renderers/default.png)
+![](./screenshots/templates/default.png)
 
 ### [Docstrap](https://github.com/docstrap/docstrap)
 
-![](./screenshots/renderers/docstrap.png)
+![](./screenshots/templates/docstrap.png)
 
 ### [Minami](https://github.com/nijikokun/minami)
 
-![](./screenshots/renderers/minami.png)
+![](./screenshots/templates/minami.png)
 
 ### [Tui](https://github.com/nhnent/tui.jsdoc-template)
 
-![](./screenshots/renderers/tui.png)
+![](./screenshots/templates/tui.png)
 
 ## Testing
 
