@@ -87,21 +87,33 @@ If you use a template that is not supported, it will use the default one as a fa
 
 Feel free to open an issue/pull request if your template is not supported!
 
-### Default
+<details>
+<summary>Default</summary>
 
-![](./screenshots/renderers/default.png)
+![](./screenshots/templates/default.png)
 
-### [Docstrap](https://github.com/docstrap/docstrap)
+</details>
 
-![](./screenshots/renderers/docstrap.png)
+<details>
+<summary>Docstrap</summary>
 
-### [Minami](https://github.com/nijikokun/minami)
+![](./screenshots/templates/docstrap.png)
 
-![](./screenshots/renderers/minami.png)
+</details>
 
-### [Tui](https://github.com/nhnent/tui.jsdoc-template)
+<details>
+<summary>Minami</summary>
 
-![](./screenshots/renderers/tui.png)
+![](./screenshots/templates/minami.png)
+
+</details>
+
+<details>
+<summary>Tui</summary>
+
+![](./screenshots/templates/tui.png)
+
+</details>
 
 ## Testing
 
