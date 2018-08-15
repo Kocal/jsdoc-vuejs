@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/Kocal/jsdoc-vuejs/compare/v2.1.0...v2.2.0) (2018-08-15)
+
+
+### Features
+
+* **renderers:** use a templating system with EJS ([#106](https://github.com/Kocal/jsdoc-vuejs/issues/106)) ([96a3aff](https://github.com/Kocal/jsdoc-vuejs/commit/96a3aff))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/Kocal/jsdoc-vuejs/compare/v2.0.5...v2.1.0) (2018-07-06)
 
