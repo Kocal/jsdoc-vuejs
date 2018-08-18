@@ -8,6 +8,10 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     '/__fixtures__/',
+    '/__tests__/stubs',
     '/cypress/',
   ],
+  moduleNameMapper: {
+    'jsdoc/(.*)': '<rootDir>/__tests__/stubs/jsdoc/$1.js',
+  },
 };
