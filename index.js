@@ -1,3 +1,4 @@
+const { join } = require('path');
 const config = require('./config');
 const render = require('./lib/core/renderer');
 const extractVueScript = require('./lib/core/vueScriptExtractor');
@@ -19,7 +20,7 @@ exports.handlers = {
   },
   newDoclet(e) {
     if (e.doclet.meta.filename.endsWith('.vue')) {
-      const fullPath = `${e.doclet.meta.path}/${e.doclet.meta.filename}`;
+      const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
       const componentName = e.doclet.meta.filename.replace(/\.vue$/, '');
 
       // The main doclet before `export default {}`
