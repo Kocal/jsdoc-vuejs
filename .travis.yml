@@ -32,4 +32,4 @@ before_script:
 script:
   - yarn lint
   - yarn test -i && yarn codecov
-  - yarn cypress run --config watchForFileChanges=false --record --key $CYPRESS_KEY
+  - yarn cypress run --config watchForFileChanges=false --record
