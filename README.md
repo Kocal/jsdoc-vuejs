@@ -5,6 +5,7 @@ JSDoc for VueJS
 [![Build Status](https://travis-ci.org/Kocal/jsdoc-vuejs.svg?branch=master)](https://travis-ci.org/Kocal/jsdoc-vuejs)
 [![Build status](https://ci.appveyor.com/api/projects/status/a36pui6w1qhqq582?svg=true)](https://ci.appveyor.com/project/Kocal/jsdoc-vuejs)
 [![codecov](https://codecov.io/gh/Kocal/jsdoc-vuejs/branch/master/graph/badge.svg)](https://codecov.io/gh/Kocal/jsdoc-vuejs)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/850b7601f2bf4e8787a6aadbafa8afef)](https://www.codacy.com/app/kocal/jsdoc-vuejs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kocal/jsdoc-vuejs&amp;utm_campaign=Badge_Grade)
 
 > A JSDoc plugin for listing props, data, computed data, and methods from *.vue files.
 
