@@ -11,6 +11,7 @@ cache:
   directories:
     - node_modules
     - example/node_modules
+    - ~/.npm
     - ~/.cache
 
 before_install:

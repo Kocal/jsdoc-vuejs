@@ -7,6 +7,8 @@ cache:
   - node_modules
   - example/node_modules
   - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.npm'
+  - '%USERPROFILE%\.cache'
 
 install:
   - ps: Install-Product node $env:nodejs_version
