@@ -3,6 +3,7 @@
   "version": "2.2.1",
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
+  "files": ["lib"],
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js index.js config.js lib __tests__ cypress",

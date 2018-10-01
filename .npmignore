@@ -1,8 +1,0 @@
-.idea/
-*.iml
-*.tgz
-*.log
-cypress/
-coverage/
-screenshots/
-example/
