@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/Kocal/jsdoc-vuejs/compare/v2.2.0...v2.2.1) (2018-10-01)
+
+
+### Bug Fixes
+
+* **template:tui:** remove empty sections ([#123](https://github.com/Kocal/jsdoc-vuejs/issues/123)) ([865afde](https://github.com/Kocal/jsdoc-vuejs/commit/865afde)), closes [#122](https://github.com/Kocal/jsdoc-vuejs/issues/122)
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/Kocal/jsdoc-vuejs/compare/v2.1.0...v2.2.0) (2018-08-15)
 
