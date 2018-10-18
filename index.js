@@ -13,7 +13,7 @@ const mainDocletLines = {};
 
 exports.handlers = {
   beforeParse(e) {
-    if (/\.vue$/.test(e.filename)) {
+    if (/\.vue$/.test(e.filename) || /\.js$/.test(e.filename)) {
       exportDefaultLines[e.filename] = seekExportDefaultLine(e.source);
       e.source = extractVueScript(e.filename);
     }
