@@ -19,9 +19,10 @@ exports.handlers = {
     }
   },
   newDoclet(e) {
-    if (e.doclet.meta.filename.endsWith('.vue')) {
+    const endsWith = e.doclet.meta.filename.endsWith('.vue') || e.doclet.meta.filename.endsWith('.js');
+    if (endsWith) {
       const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
-      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '');
+      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '').replace(/\.js$/, '');
 
       // The main doclet before `export default {}`
       if (e.doclet.longname === 'module.exports') {
