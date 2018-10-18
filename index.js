@@ -65,7 +65,9 @@ exports.handlers = {
         if (e.doclet.memberof.endsWith('.methods')) {
           e.doclet.scope = 'instance';
           e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
-          if (!isJs) e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+          if (!isJs) {
+            e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+          }
         } else {
           e.doclet.memberof = null; // don't include Vue hooks
         }
