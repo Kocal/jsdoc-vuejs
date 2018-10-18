@@ -160,7 +160,5 @@ describe('Template: docstrap', () => {
       .next('dd')
       .find('.details')
       .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-60"]', 'line 60');
-
-    cy.contains('created()').should('not.exist');
   });
 });
