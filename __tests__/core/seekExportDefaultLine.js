@@ -37,7 +37,7 @@ describe('core.seekExportDefaultLine', () => {
   });
   test('When component is js file', (done) => {
     readComponent('Component/Component.js', (source) => {
-      expect(seekExportDefaultLine(source)).toBe(0);
+      expect(seekExportDefaultLine(source, 'Component.js')).toBe(6);
       done();
     });
   });

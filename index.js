@@ -14,7 +14,7 @@ const mainDocletLines = {};
 exports.handlers = {
   beforeParse(e) {
     if (/\.vue$/.test(e.filename)) {
-      exportDefaultLines[e.filename] = seekExportDefaultLine(e.source);
+      exportDefaultLines[e.filename] = seekExportDefaultLine(e.source, e.filename);
       e.source = extractVueScript(e.filename);
     }
   },
@@ -62,9 +62,13 @@ exports.handlers = {
 
       // Methods and hooks
       if (e.doclet.kind === 'function' && 'memberof' in e.doclet) {
-        e.doclet.scope = 'instance';
-        e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
-        if (!isJs) e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+        if (e.doclet.memberof.endsWith('.methods')) {
+          e.doclet.scope = 'instance';
+          e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
+          if (!isJs) e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+        } else {
+          e.doclet.memberof = null; // don't include Vue hooks
+        }
       }
     }
   },

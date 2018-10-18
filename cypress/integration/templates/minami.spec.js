@@ -159,5 +159,7 @@ describe('Template: minami', () => {
       .next('.description')
       .next('.details')
       .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
+
+    cy.contains('created()').should('not.exist');
   });
 });

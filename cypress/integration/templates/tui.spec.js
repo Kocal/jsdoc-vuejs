@@ -155,5 +155,7 @@ describe('Template: tui', () => {
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
+
+    cy.contains('created()').should('not.exist');
   });
 });
