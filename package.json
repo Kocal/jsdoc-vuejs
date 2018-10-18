@@ -4,7 +4,8 @@
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
   "files": [
-    "lib"
+    "lib",
+    "config.js"
   ],
   "scripts": {
     "test": "jest",
