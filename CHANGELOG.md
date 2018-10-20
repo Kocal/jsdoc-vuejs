@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/Kocal/jsdoc-vuejs/compare/v2.2.3...v2.3.0) (2018-10-20)
+
+
+### Features
+
+* **parser:** plain JavaScript files are now being parsed  ([#128](https://github.com/Kocal/jsdoc-vuejs/issues/128)) ([5772716](https://github.com/Kocal/jsdoc-vuejs/commit/5772716))
+
+
+
 <a name="2.2.3"></a>
 ## [2.2.3](https://github.com/Kocal/jsdoc-vuejs/compare/v2.2.2...v2.2.3) (2018-10-18)
 
