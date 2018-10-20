@@ -14,14 +14,16 @@ const mainDocletLines = {};
 exports.handlers = {
   beforeParse(e) {
     if (/\.vue$/.test(e.filename)) {
-      exportDefaultLines[e.filename] = seekExportDefaultLine(e.source);
+      exportDefaultLines[e.filename] = seekExportDefaultLine(e.source, e.filename);
       e.source = extractVueScript(e.filename);
     }
   },
   newDoclet(e) {
-    if (e.doclet.meta.filename.endsWith('.vue')) {
+    const isJs = e.doclet.meta.filename.endsWith('.js');
+    const endsWith = e.doclet.meta.filename.endsWith('.vue') || e.doclet.meta.filename.endsWith('.js');
+    if (endsWith) {
       const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
-      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '');
+      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '').replace(/\.js$/, '');
 
       // The main doclet before `export default {}`
       if (e.doclet.longname === 'module.exports') {
@@ -63,7 +65,9 @@ exports.handlers = {
         if (e.doclet.memberof.endsWith('.methods')) {
           e.doclet.scope = 'instance';
           e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
-          e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+          if (!isJs) {
+            e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
+          }
         } else {
           e.doclet.memberof = null; // don't include Vue hooks
         }
