@@ -1630,9 +1630,9 @@ eslint-module-utils@^2.2.0:
     pkg-dir "^1.0.0"
 
 eslint-plugin-cypress@^2.0.1:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.1.0.tgz#2dcef8e42e792ff5f64459176ef294035afd55a7"
-  integrity sha512-nH6eCWrOwUV2z3qu2yJMThvXjAjc5bIfruuCY8Cxar7sFUoUPHipN4vb+KR/TJTpNPM3/S9gHLKKvoqDCCDvgg==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.1.2.tgz#e4638f54235250ce264202001526537bac9d029e"
+  integrity sha512-53kluZnH8N1SKg0fLh1csQy87NOVnmsHE2iH17uq3z4PgKAacca0fVsn/qhjTB018t0/wIb9WlY9u78iIHzorQ==
   dependencies:
     globals "^11.0.1"
 
