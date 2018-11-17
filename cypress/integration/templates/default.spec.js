@@ -71,7 +71,7 @@ describe('Template: default', () => {
         name: '<code>counter</code>',
         type: 'Number',
         defaultValue: '-',
-        description: 'Current counter\'s value',
+        description: "Current counter's value",
       },
     ];
 
@@ -237,7 +237,7 @@ describe('Template JS: default', () => {
         name: '<code>counter</code>',
         type: 'Number',
         defaultValue: '-',
-        description: 'Current counter\'s value',
+        description: "Current counter's value",
       },
     ];
 
