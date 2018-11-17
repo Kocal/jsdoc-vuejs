@@ -319,3 +319,30 @@ describe('Template JS: tui', () => {
     cy.contains('created()').should('not.exist');
   });
 });
+
+
+describe('JS files rendered or not as Vue Component', () => {
+  before(() => {
+    cy.visit('/../../../example/docs-tui/index.html');
+    cy.screenshot();
+  });
+
+  it('NotVueComponent should not be rendered as Vue component', () => {
+    cy.get('.lnb-api a[href="global.html#helloWorld"]').contains('helloWorld');
+    cy.get('.lnb-api a[href="module-NotVueComponent.html"]').should('not.exist');
+  });
+
+  it('NotVueComponent2 should not be rendered as Vue component', () => {
+    cy.visit('/../../../example/docs-tui/module-NotVueComponent2.html');
+
+    cy.get('.lnb-api a[href="module-NotVueComponent2.html"]').contains('NotVueComponent2');
+    cy
+      .contains('h3', 'Methods')
+      .should('have.attr', 'class', 'subsection-title')
+      .next('dl')
+      .find('.name')
+      .contains('theMethod')
+      .find('.container-source.members')
+      .contains('a[href="js_NotVueComponent2.js.html#line11"]', 'line 11');
+  });
+});
