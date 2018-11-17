@@ -3,6 +3,7 @@ const config = require('./config');
 const render = require('./lib/core/renderer');
 const extractVueScript = require('./lib/core/vueScriptExtractor');
 const seekExportDefaultLine = require('./lib/core/seekExportDefaultLine');
+const { isSingleFileComponent, isJSComponent } = require('./lib/core/issers');
 const vueDataTag = require('./lib/tags/vue-data');
 const vuePropTag = require('./lib/tags/vue-prop');
 const vueComputedTag = require('./lib/tags/vue-computed');
@@ -19,58 +20,61 @@ exports.handlers = {
     }
   },
   newDoclet(e) {
-    const isJs = e.doclet.meta.filename.endsWith('.js');
-    const endsWith = e.doclet.meta.filename.endsWith('.vue') || e.doclet.meta.filename.endsWith('.js');
-    if (endsWith) {
-      const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
-      const componentName = e.doclet.meta.filename.replace(/\.vue$/, '').replace(/\.js$/, '');
+    const fileIsSingleFileComponent = isSingleFileComponent(e.doclet);
+    const fileIsJSComponent = isJSComponent(e.doclet);
 
-      // The main doclet before `export default {}`
-      if (e.doclet.longname === 'module.exports') {
-        e.doclet.kind = 'module';
-        e.doclet.name = componentName;
-        e.doclet.alias = componentName;
-        e.doclet.longname = `module:${componentName}`;
-      }
+    if (!fileIsSingleFileComponent && !fileIsJSComponent) {
+      return;
+    }
 
-      if (
-        !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
-        && e.doclet.longname.startsWith('module:')
-      ) {
-        mainDocletLines[fullPath] = e.doclet.meta.lineno;
-      }
+    const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
+    const componentName = e.doclet.meta.filename.replace(/\.(vue|js)$/, '');
 
-      // It can be the main doclet before `export default {}`
-      // with at least one `@vue-*` tag
-      if (e.doclet._isVueDoc) {
-        const { template } = config['jsdoc-vuejs'];
-        const data = {
-          props: e.doclet._vueProps || [],
-          data: e.doclet._vueData || [],
-          computed: e.doclet._vueComputed || [],
-        };
+    // The main doclet before `export default {}`
+    if (e.doclet.longname === 'module.exports') {
+      e.doclet.kind = 'module';
+      e.doclet.name = componentName;
+      e.doclet.alias = componentName;
+      e.doclet.longname = `module:${componentName}`;
+    }
 
-        render(template, data, (err, str) => {
-          if (err) throw err;
+    if (
+      !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
+      && e.doclet.longname.startsWith('module:')
+    ) {
+      mainDocletLines[fullPath] = e.doclet.meta.lineno;
+    }
 
-          e.doclet.description = str;
-        });
+    // It can be the main doclet before `export default {}`
+    // with at least one `@vue-*` tag
+    if (e.doclet._isVueDoc) {
+      const { template } = config['jsdoc-vuejs'];
+      const data = {
+        props: e.doclet._vueProps || [],
+        data: e.doclet._vueData || [],
+        computed: e.doclet._vueComputed || [],
+      };
 
-        // Remove meta for not rendering source for this doclet
-        delete e.doclet.meta;
-      }
+      render(template, data, (err, str) => {
+        if (err) throw err;
 
-      // Methods and hooks
-      if (e.doclet.kind === 'function' && 'memberof' in e.doclet) {
-        if (e.doclet.memberof.endsWith('.methods')) {
-          e.doclet.scope = 'instance';
-          e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
-          if (!isJs) {
-            e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
-          }
-        } else {
-          e.doclet.memberof = null; // don't include Vue hooks
+        e.doclet.description = str;
+      });
+
+      // Remove meta for not rendering source for this doclet
+      delete e.doclet.meta;
+    }
+
+    // Methods and hooks
+    if (e.doclet.kind === 'function' && 'memberof' in e.doclet) {
+      if (e.doclet.memberof.endsWith('.methods')) {
+        e.doclet.scope = 'instance';
+        e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
+        if (fileIsSingleFileComponent) {
+          e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
         }
+      } else {
+        e.doclet.memberof = null; // don't include Vue hooks
       }
     }
   },
