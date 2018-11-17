@@ -327,3 +327,30 @@ describe('Template JS: minami', () => {
     cy.contains('created()').should('not.exist');
   });
 });
+
+
+describe('JS files rendered or not as Vue Component', () => {
+  before(() => {
+    cy.visit('/../../../example/docs-minami/index.html');
+    cy.screenshot();
+  });
+
+  it('NotVueComponent should not be rendered as Vue component', () => {
+    cy.get('.nav-item-name a[href="global.html#helloWorld"]').contains('helloWorld');
+    cy.get('.nav-item-name a[href="module-NotVueComponent.html"]').should('not.exist');
+  });
+
+  it('NotVueComponent2 should not be rendered as Vue component', () => {
+    cy.visit('/../../../example/docs-minami/module-NotVueComponent2.html');
+
+    cy.get('.nav-item-name a[href="module-NotVueComponent2.html"]').contains('NotVueComponent2');
+    cy
+      .contains('h3', 'Methods')
+      .should('have.attr', 'class', 'subsection-title')
+      .next('.section-method')
+      .find('h4.name')
+      .contains('theMethod')
+      .next('dl.details')
+      .contains('a[href="js_NotVueComponent2.js.html#line11"]', 'line 11');
+  });
+});

@@ -330,3 +330,30 @@ describe('Template JS: default', () => {
     cy.contains('created()').should('not.exist');
   });
 });
+
+describe('JS files rendered or not as Vue Component', () => {
+  before(() => {
+    cy.visit('/../../../example/docs/index.html');
+    cy.screenshot();
+  });
+
+  it('NotVueComponent should not be rendered as Vue component', () => {
+    cy.get('nav > ul > li a[href="global.html#helloWorld"]').contains('helloWorld');
+    cy.get('nav > ul > li a[href="module-NotVueComponent.html"]').should('not.exist');
+  });
+
+  it('NotVueComponent2 should not be rendered as Vue component', () => {
+    cy.visit('/../../../example/docs/module-NotVueComponent2.html');
+
+    cy.get('nav > ul > li a[href="module-NotVueComponent2.html"]').contains('NotVueComponent2');
+    cy
+      .contains('h3', 'Methods')
+      .should('have.attr', 'class', 'subsection-title')
+      .next()
+      .contains('theMethod')
+      .next('h5')
+      .next('.params')
+      .next('.details')
+      .contains('a[href="js_NotVueComponent2.js.html#line11"]', 'line 11');
+  });
+});

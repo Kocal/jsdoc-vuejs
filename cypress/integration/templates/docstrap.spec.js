@@ -2,7 +2,7 @@
 
 describe('Template: docstrap', () => {
   before(() => {
-    cy.visit('/../../../example/docs-docstrap//module-better-components_BetterCounter.html');
+    cy.visit('/../../../example/docs-docstrap/module-better-components_BetterCounter.html');
     cy.screenshot();
   });
 
@@ -167,7 +167,7 @@ describe('Template: docstrap', () => {
 
 describe('Template JS: docstrap', () => {
   before(() => {
-    cy.visit('/../../../example/docs-docstrap//module-CounterJS.html');
+    cy.visit('/../../../example/docs-docstrap/module-CounterJS.html');
     cy.screenshot();
   });
 
@@ -327,5 +327,35 @@ describe('Template JS: docstrap', () => {
       .contains('a[href="js_CounterJS.js.html#sunlight-1-line-51"]', 'line 51');
 
     cy.contains('created()').should('not.exist');
+  });
+});
+
+
+describe('JS files rendered or not as Vue Component', () => {
+  before(() => {
+    cy.visit('/../../../example/docs-docstrap/index.html');
+    cy.screenshot();
+  });
+
+  it('NotVueComponent should not be rendered as Vue component', () => {
+    cy.get('.nav .dropdown a[href="global.html#helloWorld"]').contains('helloWorld');
+    cy.get('.nav .dropdown a[href="module-NotVueComponent.html"]').should('not.exist');
+  });
+
+  it('NotVueComponent2 should not be rendered as Vue component', () => {
+    cy.visit('/../../../example/docs-docstrap/module-NotVueComponent2.html');
+
+    cy.get('.nav .dropdown a[href="module-NotVueComponent2.html"]').contains('NotVueComponent2');
+
+    cy
+      .contains('h3', 'Methods')
+      .should('have.attr', 'class', 'subsection-title')
+      .next('dl')
+      .find('h4')
+      .contains('theMethod')
+      .parent()
+      .next('dd')
+      .find('.details')
+      .contains('a[href="js_NotVueComponent2.js.html#sunlight-1-line-11"]', 'line 11');
   });
 });
