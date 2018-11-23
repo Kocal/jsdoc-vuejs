@@ -10,7 +10,6 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js index.js config.js lib __tests__ cypress",
-    "release": "standard-version",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
@@ -46,7 +45,6 @@
     "eslint-plugin-import": "^2.13.0",
     "jest": "^23.4.2",
     "semantic-release": "^15.12.1",
-    "standard-version": "^4.4.0",
     "travis-deploy-once": "^5.0.9"
   }
 }
