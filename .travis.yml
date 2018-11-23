@@ -5,6 +5,10 @@ node_js:
   - "8"
   - "node"
 
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+
 cache:
   yarn: true
   directories:
@@ -33,3 +37,7 @@ script:
   - yarn lint
   - yarn test -i && yarn codecov
   - yarn cypress run --config watchForFileChanges=false --record
+
+after_success:
+  - yarn travis-deploy-once "yarn semantic-release"
+

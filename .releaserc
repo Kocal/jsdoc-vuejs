@@ -1,0 +1,3 @@
+{
+  "extends": "@kocal/semantic-release-preset"
+}
