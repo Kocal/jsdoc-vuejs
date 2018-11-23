@@ -16,6 +16,12 @@ describe('Template: docstrap', () => {
       .contains('better-components/BetterCounter');
   });
 
+  it('should renders @desc properly', () => {
+    cy
+      .get('.container-overview')
+      .contains('BetterCounter component, like Counter component but better');
+  });
+
   it('should renders props correctly', () => {
     const props = [
       {
@@ -145,21 +151,21 @@ describe('Template: docstrap', () => {
       .parent()
       .next('dd')
       .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-52"]', 'line 52');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-53"]', 'line 53');
 
     cy.get('#increment')
       .contains('increment()')
       .parent()
       .next('dd')
       .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-45"]', 'line 45');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-46"]', 'line 46');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .parent()
       .next('dd')
       .find('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-60"]', 'line 60');
+      .contains('a[href="better-components_BetterCounter.vue.html#sunlight-1-line-61"]', 'line 61');
 
     cy.contains('created()').should('not.exist');
   });

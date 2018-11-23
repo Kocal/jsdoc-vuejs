@@ -16,6 +16,12 @@ describe('Template: default', () => {
       .contains('better-components/BetterCounter');
   });
 
+  it('should renders @desc properly', () => {
+    cy
+      .get('.container-overview')
+      .contains('BetterCounter component, like Counter component but better');
+  });
+
   it('should renders props correctly', () => {
     const props = [
       {
@@ -145,13 +151,13 @@ describe('Template: default', () => {
       .contains('decrement()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line52"]', 'line 52');
+      .contains('a[href="better-components_BetterCounter.vue.html#line53"]', 'line 53');
 
     cy.get('#increment')
       .contains('increment()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line45"]', 'line 45');
+      .contains('a[href="better-components_BetterCounter.vue.html#line46"]', 'line 46');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
@@ -159,7 +165,7 @@ describe('Template: default', () => {
       .next('h5')
       .next('.params')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line60"]', 'line 60');
+      .contains('a[href="better-components_BetterCounter.vue.html#line61"]', 'line 61');
 
     cy.contains('created()').should('not.exist');
   });
