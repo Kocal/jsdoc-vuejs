@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-vuejs",
-  "version": "2.3.1",
+  "version": "0.0.0-development",
   "description": "A JSDoc plugin for documenting .vue files.",
   "main": "index.js",
   "files": [
@@ -10,11 +10,12 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js index.js config.js lib __tests__ cypress",
-    "release": "standard-version"
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kocal/jsdoc-vuejs.git"
+    "url": "https://github.com/Kocal/jsdoc-vuejs.git"
   },
   "keywords": [
     "jsdoc",
@@ -34,6 +35,7 @@
     "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {
+    "@kocal/semantic-release-preset": "^1.1.0",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.0.4",
     "cypress": "^3.0.3",
@@ -42,6 +44,7 @@
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.13.0",
     "jest": "^23.4.2",
-    "standard-version": "^4.4.0"
+    "semantic-release": "^15.12.1",
+    "travis-deploy-once": "^5.0.9"
   }
 }
