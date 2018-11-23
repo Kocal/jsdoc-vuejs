@@ -58,7 +58,7 @@ exports.handlers = {
       render(template, data, (err, str) => {
         if (err) throw err;
 
-        e.doclet.description = str;
+        e.doclet.description = (e.doclet.description || '') + str;
       });
 
       // Remove meta for not rendering source for this doclet
