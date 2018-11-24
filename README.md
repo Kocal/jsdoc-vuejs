@@ -5,7 +5,6 @@ JSDoc for VueJS
 [![Build Status (Travis)](https://travis-ci.org/Kocal/jsdoc-vuejs.svg?branch=master)](https://travis-ci.org/Kocal/jsdoc-vuejs)
 [![Build Status (AppVeyor)](https://ci.appveyor.com/api/projects/status/a36pui6w1qhqq582?svg=true)](https://ci.appveyor.com/project/Kocal/jsdoc-vuejs)
 [![codecov](https://codecov.io/gh/Kocal/jsdoc-vuejs/branch/master/graph/badge.svg)](https://codecov.io/gh/Kocal/jsdoc-vuejs)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/850b7601f2bf4e8787a6aadbafa8afef)](https://www.codacy.com/app/kocal/jsdoc-vuejs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kocal/jsdoc-vuejs&amp;utm_campaign=Badge_Grade)
 
 > A JSDoc plugin for listing props, data, computed data, and methods from *.vue files.
 
@@ -119,6 +118,19 @@ Feel free to open an issue/pull request if your template is not supported!
 
 ## Testing
 
+### Install Dependencies
+
+```bash
+$ git clone https://github.com/Kocal/jsdoc-vuejs
+$ cd jsdoc-vuejs
+$ yarn install
+
+# For testing the example docs
+$ cd example
+$ yarn install
+$ yarn docs
+```
+
 ### Unit
 
 ```bash
@@ -132,7 +144,7 @@ you should generate documentation with all renderers:
 
 ```bash
 $ cd example
-$ yarn
+$ yarn install
 $ yarn docs
 $ yarn docs:docstrap
 $ yarn docs:minami
