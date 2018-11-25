@@ -129,7 +129,7 @@ $ yarn install
 # For testing the example docs
 $ cd example
 $ yarn install
-$ yarn docs
+$ yarn docs # output in `docs` folder
 ```
 
 ### Unit
