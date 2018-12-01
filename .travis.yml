@@ -38,6 +38,10 @@ script:
   - yarn test -i && yarn codecov
   - yarn cypress run --config watchForFileChanges=false --record
 
-after_success:
-  - yarn travis-deploy-once "yarn semantic-release"
+jobs:
+  include:
+    - stage: Release
+      if: branch = master AND type = push
+      node_js: node
+      script: yarn semantic-release
 
