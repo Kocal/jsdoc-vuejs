@@ -129,7 +129,15 @@ $ yarn install
 # For testing the example docs
 $ cd example
 $ yarn install
-$ yarn docs # output in `docs` folder
+
+# Generate docs for every renderer
+$ yarn docs:all
+
+# Generate for a specific renderer  
+$ yarn docs
+$ yarn docs:docstrap
+$ yarn docs:minami
+$ yarn docs:tui
 ```
 
 ### Unit
