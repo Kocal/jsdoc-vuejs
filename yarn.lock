@@ -53,9 +53,9 @@
     lodash.once "^4.1.1"
 
 "@kocal/semantic-release-preset@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@kocal/semantic-release-preset/-/semantic-release-preset-1.1.0.tgz#e5da575c9c7509995454a080896eb27bc33ce55c"
-  integrity sha512-OOCkSyH7kqvovN5QbuXw1Z4nwdKoqJDXFWm88RiLYHH8BTiQZY00nFUSVh7EoEaMbwL6sWTUwjD+J33QuyIjBw==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@kocal/semantic-release-preset/-/semantic-release-preset-1.1.2.tgz#fec20764f6c88c86f979b407337814a5b289a56b"
+  integrity sha512-MeigSZDKTwdPtesL9wCdBrTAmz/MTwnlbUwnwfNF/gq/nx+LdAFD4GpJcMTk7LfGHP/hSLTjbhoo6Ra2Q+Vbeg==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
     "@semantic-release/github" "^5.2.1"
