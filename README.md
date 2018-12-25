@@ -136,12 +136,18 @@ $ yarn install
 # For testing the example docs
 $ cd example
 $ yarn install
+```
+
+#### Generate documentations
+
+```bash
+$ cd example
 
 # Generate docs for every renderer
 $ yarn docs:all
 
-# Generate for a specific renderer  
-$ yarn docs
+# or one by one
+$ yarn docs # default jsdoc template
 $ yarn docs:docstrap
 $ yarn docs:minami
 $ yarn docs:tui
@@ -160,17 +166,13 @@ you should generate documentation with all renderers:
 
 ```bash
 $ cd example
-$ yarn install
-$ yarn docs
-$ yarn docs:docstrap
-$ yarn docs:minami
-$ yarn docs:tui
-$ cd ..
+$ yarn docs:all
 ```
 
 And then run Cypress:
 
 ```bash
+$ cd ..
 $ yarn cypress run
 ```
 
