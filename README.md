@@ -126,6 +126,27 @@ Feel free to open an issue/pull request if your template is not supported!
 
 ## Testing
 
+### Install Dependencies
+
+```bash
+$ git clone https://github.com/Kocal/jsdoc-vuejs
+$ cd jsdoc-vuejs
+$ yarn install
+
+# For testing the example docs
+$ cd example
+$ yarn install
+
+# Generate docs for every renderer
+$ yarn docs:all
+
+# Generate for a specific renderer  
+$ yarn docs
+$ yarn docs:docstrap
+$ yarn docs:minami
+$ yarn docs:tui
+```
+
 ### Unit
 
 ```bash
@@ -139,7 +160,7 @@ you should generate documentation with all renderers:
 
 ```bash
 $ cd example
-$ yarn
+$ yarn install
 $ yarn docs
 $ yarn docs:docstrap
 $ yarn docs:minami
