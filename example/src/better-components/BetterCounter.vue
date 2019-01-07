@@ -19,6 +19,7 @@
    * @vue-computed {Array.<String>} fooList - A list of foo
    * @vue-computed {Array.<String>} barList - A list of bar
    * @vue-computed {String} message A message
+   * @vue-event {Number} increment - emit value of counter
    */
   export default {
     props: {
@@ -41,10 +42,11 @@
     },
     methods: {
       /**
-       * Increment counter.
+       * Increment counter and emit event 'increment
        */
       increment() {
         this.counter += this.step;
+        this.$emit('increment', this.counter)
       },
 
       /**
