@@ -164,7 +164,7 @@ describe('Template: default', () => {
       .get('@table-event')
       .find('> tbody > tr')
       .then(($rows) => {
-        expect($rows).to.have.length(3);
+        expect($rows).to.have.length(2);
 
         events.forEach((event, i) => {
           const $row = $rows.eq(i);
@@ -184,13 +184,13 @@ describe('Template: default', () => {
       .contains('decrement()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line53"]', 'line 53');
+      .contains('a[href="better-components_BetterCounter.vue.html#line56"]', 'line 56');
 
     cy.get('#increment')
       .contains('increment()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line46"]', 'line 46');
+      .contains('a[href="better-components_BetterCounter.vue.html#line48"]', 'line 48');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
@@ -198,7 +198,7 @@ describe('Template: default', () => {
       .next('h5')
       .next('.params')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line61"]', 'line 61');
+      .contains('a[href="better-components_BetterCounter.vue.html#line65"]', 'line 65');
 
     cy.contains('created()').should('not.exist');
   });
