@@ -9,7 +9,9 @@ describe('code.renderer', () => {
   it('should call ejs render method', () => {
     const cb = () => {};
 
-    renderer('my-template', { props: ['props'], data: ['data'], computed: ['computed'] }, cb);
+    renderer('my-template', {
+      props: ['props'], data: ['data'], computed: ['computed'], event: ['event'],
+    }, cb);
 
     expect(ejs.renderFile).toHaveBeenCalledTimes(1);
     expect(ejs.renderFile).toHaveBeenCalledWith(
@@ -18,6 +20,7 @@ describe('code.renderer', () => {
         props: ['props'],
         data: ['data'],
         computed: ['computed'],
+        event: ['event'],
         // an helper function, it should be under keys "utils" or "helpers" btw
         renderType: expect.any(Function),
       },

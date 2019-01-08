@@ -29,7 +29,8 @@
         "_isVueDoc",
         "_vueProps",
         "_vueData",
-        "_vueComputed"
+        "_vueComputed",
+        "_vueEvent"
       ]
     }]
   }

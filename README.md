@@ -42,6 +42,7 @@ Update your .vue files with one of the following tags:
 - `@vue-prop`
 - `@vue-data`
 - `@vue-computed`
+- `@vue-event`
 
 All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags-param.html).
 
