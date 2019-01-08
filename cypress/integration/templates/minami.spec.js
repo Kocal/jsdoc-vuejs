@@ -146,25 +146,58 @@ describe('Template: minami', () => {
       });
   });
 
+  it('should renders event correctly', () => {
+    const events = [
+      { name: '<code>increment</code>', type: 'Number', description: 'Emit value of counter after increment' },
+      { name: '<code>decrement</code>', type: 'Number', description: 'Emit value of counter after decrement' },
+    ];
+
+    cy.get('[data-jsdoc-vuejs="section-event"]').contains('Events');
+    cy.get('[data-jsdoc-vuejs="table-event"]').as('table-event');
+
+    cy
+      .get('@table-event')
+      .find('> thead > tr > th')
+      .contains('Name')
+      .next().contains('Payload-type')
+      .next().contains('Description');
+
+    cy
+      .get('@table-event')
+      .find('> tbody > tr')
+      .then(($rows) => {
+        expect($rows).to.have.length(2);
+
+        events.forEach((event, i) => {
+          const $row = $rows.eq(i);
+          const $children = $row.children();
+
+          expect($children.eq(0).html()).to.eq(event.name);
+          expect($children.eq(1).html()).to.eq(event.type);
+          expect($children.eq(2).html()).to.eq(event.description);
+        });
+      });
+  });
+
   it('should render methods properly', () => {
     cy.contains('h3', 'Methods').should('have.attr', 'class', 'subsection-title');
     cy.get('#decrement')
       .contains('decrement()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line53"]', 'line 53');
+      .contains('a[href="better-components_BetterCounter.vue.html#line56"]', 'line 56');
 
     cy.get('#increment')
       .contains('increment()')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line46"]', 'line 46');
+      .contains('a[href="better-components_BetterCounter.vue.html#line48"]', 'line 48');
 
     cy.get('#showDialog')
       .contains('showDialog(counter)')
       .next('.description')
       .next('.details')
-      .contains('a[href="better-components_BetterCounter.vue.html#line61"]', 'line 61');
+      .contains('a[href="better-components_BetterCounter.vue.html#line65"]', 'line 65');
 
     cy.contains('created()').should('not.exist');
   });
