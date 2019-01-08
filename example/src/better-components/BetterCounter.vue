@@ -43,7 +43,7 @@
     },
     methods: {
       /**
-       * Increment counter and emit event 'increment
+       * Increment counter and emit event 'increment'
        */
       increment() {
         this.counter += this.step;
@@ -51,7 +51,7 @@
       },
 
       /**
-       * Decrement counter.
+       * Decrement counter and emit event 'decrement'
        */
       decrement() {
         this.counter -= this.step;
