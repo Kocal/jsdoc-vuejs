@@ -29,18 +29,22 @@ exports.handlers = {
 
     const fullPath = join(e.doclet.meta.path, e.doclet.meta.filename);
     const componentName = e.doclet.meta.filename.replace(/\.(vue|js)$/, '');
+    const is_mixin = componentName.endsWith('Mixin'); // ugly - don't know jsDoc well enough to come up with something better
+    const is_module_exports = e.doclet.longname === 'module.exports';
 
     // The main doclet before `export default {}`
-    if (e.doclet.longname === 'module.exports') {
-      e.doclet.kind = 'module';
+    if (is_module_exports) {
+      const kind = is_mixin ? 'mixin' : 'module';
+      e.doclet.kind = kind;
+      e.doclet.memberof = kind;
       e.doclet.name = componentName;
       e.doclet.alias = componentName;
-      e.doclet.longname = `module:${componentName}`;
+      e.doclet.longname = `${e.doclet.kind}:${componentName}`;
     }
 
     if (
-      !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
-      && e.doclet.longname.startsWith('module:')
+        !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it works
+        && is_module_exports
     ) {
       mainDocletLines[fullPath] = e.doclet.meta.lineno;
     }
@@ -65,15 +69,26 @@ exports.handlers = {
       delete e.doclet.meta;
     }
 
+    const is_method_and_hooks = e.doclet.kind === 'function' && 'memberof' in e.doclet
+
     // Methods and hooks
-    if (e.doclet.kind === 'function' && 'memberof' in e.doclet) {
+    if (is_method_and_hooks) {
+
       if (e.doclet.memberof.endsWith('.methods')) {
         e.doclet.scope = 'instance';
         e.doclet.memberof = e.doclet.memberof.replace(/\.methods$/, ''); // force method to be displayed
+        e.doclet.longname = e.doclet.longname.replace(/\.methods\./, '#'); // force method to be instance
+
         if (fileIsSingleFileComponent) {
           e.doclet.meta.lineno += exportDefaultLines[fullPath] - mainDocletLines[fullPath];
         }
-      } else {
+
+        if (is_mixin) {
+          e.doclet.memberof = e.doclet.memberof.replace(/^mixin:/, ''); // remove "mixin:"-prefix. Seems to be neccesery
+        }
+
+
+      } else if (!is_mixin) {
         e.doclet.memberof = null; // don't include Vue hooks
       }
     }
