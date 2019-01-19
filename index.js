@@ -7,6 +7,7 @@ const { isSingleFileComponent, isJSComponent } = require('./lib/core/issers');
 const vueDataTag = require('./lib/tags/vue-data');
 const vuePropTag = require('./lib/tags/vue-prop');
 const vueComputedTag = require('./lib/tags/vue-computed');
+const vueEventTag = require('./lib/tags/vue-event');
 
 // Used to compute good line number for Vue methods
 const exportDefaultLines = {};
@@ -22,7 +23,6 @@ exports.handlers = {
   newDoclet(e) {
     const fileIsSingleFileComponent = isSingleFileComponent(e.doclet);
     const fileIsJSComponent = isJSComponent(e.doclet);
-
     if (!fileIsSingleFileComponent && !fileIsJSComponent) {
       return;
     }
@@ -53,6 +53,7 @@ exports.handlers = {
         props: e.doclet._vueProps || [],
         data: e.doclet._vueData || [],
         computed: e.doclet._vueComputed || [],
+        event: e.doclet._vueEvent || [],
       };
 
       render(template, data, (err, str) => {
@@ -84,4 +85,5 @@ exports.defineTags = function defineTags(dictionary) {
   dictionary.defineTag(vueDataTag.name, vueDataTag.options);
   dictionary.defineTag(vuePropTag.name, vuePropTag.options);
   dictionary.defineTag(vueComputedTag.name, vueComputedTag.options);
+  dictionary.defineTag(vueEventTag.name, vueEventTag.options);
 };

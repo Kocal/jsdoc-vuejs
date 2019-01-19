@@ -42,6 +42,7 @@ Update your .vue files with one of the following tags:
 - `@vue-prop`
 - `@vue-data`
 - `@vue-computed`
+- `@vue-event`
 
 All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags-param.html).
 
@@ -56,6 +57,8 @@ All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags
    * @vue-prop {Number} [step=1] - Step
    * @vue-data {Number} counter - Current counter's value
    * @vue-computed {String} message
+   * @vue-event {Number} increment - Emit counter's value after increment
+   * @vue-event {Number} decrement - Emit counter's value after decrement
    */
   export default {
     props: {
@@ -76,6 +79,16 @@ All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags
     computed: {
       message() {
         return `Current value is ${this.counter}`;
+      }
+    },
+    methods: {
+      increment() {
+        this.counter += 1;
+        this.$emit('increment', this.counter);
+      },
+      decrement() {
+        this.counter -= 1;
+        this.$emit('decrement', this.counter);
       }
     }
   }
