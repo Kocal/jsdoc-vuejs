@@ -161,7 +161,7 @@ describe('Template: tui', () => {
       .get('@table-event')
       .find('> thead > tr > th')
       .contains('Name')
-      .next().contains('Payload-type')
+      .next().contains('Payload Type')
       .next().contains('Description');
 
     cy
