@@ -150,8 +150,8 @@ describe('Template: tui', () => {
 
   it('should renders event correctly', () => {
     const events = [
-      { name: '<code>increment</code>', type: '<span class="param-type">Number</span>', description: 'Emit value of counter after increment' },
-      { name: '<code>decrement</code>', type: '<span class="param-type">Number</span>', description: 'Emit value of counter after decrement' },
+      { name: '<code>increment</code>', type: '<span class="param-type">Number</span>', description: "Emit counter's value after increment" },
+      { name: '<code>decrement</code>', type: '<span class="param-type">Number</span>', description: "Emit counter's value after decrement" },
     ];
 
     cy.get('[data-jsdoc-vuejs="section-event"]').contains('Events');
