@@ -37,6 +37,16 @@ exports.handlers = {
       e.doclet.alias = componentName;
       e.doclet.longname = `module:${componentName}`;
     }
+    // if it's a vue module that wasn't given a name
+    else if (e.doclet.longname.includes(".module:vue")) {
+      // use the default name without the added gunk
+      let newName = e.doclet.longname.replace(".module:vue", "");
+      e.doclet.longname = `module:${newName}`;
+      // fix the name if it's a module. member names aren't affected
+      if (e.doclet.kind === "module") {
+        e.doclet.name = newName;
+      }
+    }
 
     if (
       !/[.~#]/.test(e.doclet.longname) // filter component's properties and member, not the best way but it werks
