@@ -33,4 +33,4 @@ test_script:
   - yarn lint
   - yarn test -i
   - yarn codecov
-  - yarn cypress run --config watchForFileChanges=false --record
+  - yarn cypress run --config watchForFileChanges=false
