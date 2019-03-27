@@ -1,5 +1,6 @@
 const env = require('jsdoc/env');
 const getTemplatePath = require('./lib/core/getTemplatePath');
+
 const config = env.conf || {};
 
 config['jsdoc-vuejs'] = config['jsdoc-vuejs'] || {};
