@@ -23,7 +23,7 @@ before_install:
 install:
   - yarn install --frozen-lockfile
   - cd example && yarn install --frozen-lockfile && cd ..
-  - yarn cypress install
+  - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress install; fi
 
 before_script:
   - cd example
@@ -36,7 +36,7 @@ before_script:
 script:
   - yarn lint
   - yarn test -i && yarn codecov
-  - yarn cypress run --config watchForFileChanges=false --record
+  - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress run --config watchForFileChanges=false --record; fi
 
 jobs:
   include:
