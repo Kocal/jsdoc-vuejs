@@ -14,7 +14,6 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm install -g yarn
   - yarn install --frozen-lockfile
-  - yarn cypress install
   - cd example
   - yarn install --frozen-lockfile
   - cd ..
@@ -33,4 +32,3 @@ test_script:
   - yarn lint
   - yarn test -i
   - yarn codecov
-  - yarn cypress run --config watchForFileChanges=false
