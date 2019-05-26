@@ -12,7 +12,7 @@ JSDoc for VueJS
 ## Installation
 
 ```bash
-$ npm install --save-dev jsdoc-vuejs
+$ npm install --save-dev jsdoc jsdoc-vuejs
 ```
 
 You also need to install `vue-template-compiler` that match your Vue version:
