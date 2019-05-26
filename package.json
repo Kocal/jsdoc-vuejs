@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/Kocal/jsdoc-vuejs#readme",
   "dependencies": {
-    "ejs": "^2.6.1",
-    "jsdoc": "^3.5.5"
+    "ejs": "^2.6.1"
   },
   "peerDependencies": {
+    "jsdoc": ">=3.0.0",
     "vue-template-compiler": ">= 2.0.0"
   },
   "devDependencies": {
@@ -46,6 +46,7 @@
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.13.0",
     "jest": "^24.0.0",
+    "jsdoc": "^3.6.2",
     "semantic-release": "^15.12.1",
     "vue-template-compiler": "^2.5.21"
   }
