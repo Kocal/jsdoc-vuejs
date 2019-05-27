@@ -314,9 +314,9 @@
     "@types/yargs" "^12.0.9"
 
 "@kocal/semantic-release-preset@^1.1.0":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@kocal/semantic-release-preset/-/semantic-release-preset-1.1.7.tgz#3e5b5c37ce20dc5117bcc37ddb09a303cf13b1c4"
-  integrity sha512-JbSD7wKls1HwGAjtZe+GzuaefJpURGuHpQn7MNnbasOh5hHc9lzV/XTwr7oA3CSCWH/zggqfRtwsXnPd826eYw==
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@kocal/semantic-release-preset/-/semantic-release-preset-1.1.8.tgz#678ec266410945b2849b2227d06c6c14afc085a9"
+  integrity sha512-Hk0JC5kGdDn/BI3IiLBPyvnyTbZ7fPmjN8TA2oXzu+92j369uNyD7bm+QMbEih4Qkg0Fzj7mfCdEbYonyv2U2A==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
     "@semantic-release/github" "^5.2.1"
