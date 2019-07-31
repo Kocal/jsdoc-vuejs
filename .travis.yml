@@ -36,7 +36,7 @@ before_script:
 script:
   - yarn lint
   - yarn test -i && yarn codecov
-  - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress run --config watchForFileChanges=false --record; fi
+  - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress run --config --record; fi
 
 jobs:
   include:
