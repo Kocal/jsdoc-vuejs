@@ -22,7 +22,7 @@ before_install:
 
 install:
   - yarn install --frozen-lockfile
-  - cd example && yarn install --frozen-lockfile && cd ..
+  - (cd example; yarn install --frozen-lockfile)
   - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress install; fi
 
 before_script:

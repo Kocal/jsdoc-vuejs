@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "ink-docstrap": "^1.3.2",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.3",
     "minami": "^1.2.3",
     "tui-jsdoc-template": "^1.2.2",
     "vuex": "^3.0.1"
