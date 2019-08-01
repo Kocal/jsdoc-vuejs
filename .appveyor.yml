@@ -1,13 +1,7 @@
 environment:
   matrix:
     - nodejs_version: "8"
-      JSDOC_PKG: jsdoc@<3.6
-
     - nodejs_version: ""
-      JSDOC_PKG: jsdoc@>=3.6
-
-    - nodejs_version: ""
-      JSDOC_PKG: jsdoc@<3.6
 
 cache:
   - node_modules
@@ -20,11 +14,9 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm install -g yarn
   - yarn install --frozen-lockfile
-  - yarn add --save-dev $env:JSDOC_PKG
   - ps: if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { yarn cypress install }
   - cd example
   - yarn install --frozen-lockfile
-  - yarn add --save-dev $env:JSDOC_PKG
   - cd ..
 
 build: off

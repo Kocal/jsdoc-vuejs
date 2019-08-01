@@ -5,15 +5,6 @@ node_js:
   - "8"
   - "node"
 
-env:
-  - JSDOC_PKG="jsdoc@<3.6"
-  - JSDOC_PKG="jsdoc@>=3.6"
-
-matrix:
-  exclude:
-    - node_js: "node"
-      env: JSDOC_PKG="jsdoc@<3.6"
-
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
@@ -31,8 +22,7 @@ before_install:
 
 install:
   - yarn install --frozen-lockfile
-  - sh -c "yarn add --save-dev ${JSDOC_PKG}"
-  - (cd example; yarn install --frozen-lockfile; sh -c "yarn add --save-dev ${JSDOC_PKG}")
+  - (cd example; yarn install --frozen-lockfile)
   - if [[ "${TRAVIS_EVENT_TYPE}" = pull_request ]]; then yarn cypress install; fi
 
 before_script:
