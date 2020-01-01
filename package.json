@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Kocal/jsdoc-vuejs#readme",
   "dependencies": {
-    "ejs": "^2.6.1"
+    "ejs": "^3.0.1"
   },
   "peerDependencies": {
     "jsdoc": ">=3.0.0",
