@@ -37,7 +37,7 @@
     "vue-template-compiler": ">= 2.0.0"
   },
   "devDependencies": {
-    "@kocal/semantic-release-preset": "^1.1.0",
+    "@kocal/semantic-release-preset": "^2.0.1",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.0.4",
     "cypress": "^4.0.1",
