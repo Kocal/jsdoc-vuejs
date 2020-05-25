@@ -37,7 +37,7 @@
     "vue-template-compiler": ">= 2.0.0"
   },
   "devDependencies": {
-    "@kocal/semantic-release-preset": "^1.1.0",
+    "@kocal/semantic-release-preset": "^2.0.2",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.0.4",
     "cypress": "^4.0.1",
@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.13.0",
     "jest": "^24.0.0",
     "jsdoc": "^3.6.2",
-    "semantic-release": "^15.12.1",
+    "semantic-release": "^17.0.8",
     "vue-template-compiler": "^2.5.21"
   }
 }
