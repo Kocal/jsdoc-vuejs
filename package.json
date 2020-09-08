@@ -10,7 +10,6 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js index.js config.js lib __tests__ cypress",
-    "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -29,6 +28,9 @@
     "url": "https://github.com/Kocal/jsdoc-vuejs/issues"
   },
   "homepage": "https://github.com/Kocal/jsdoc-vuejs#readme",
+  "engines": {
+    "node": "^10.13.0 || >=12.0.0"
+  },
   "dependencies": {
     "ejs": "^3.0.1"
   },
@@ -37,9 +39,7 @@
     "vue-template-compiler": ">= 2.0.0"
   },
   "devDependencies": {
-    "@kocal/semantic-release-preset": "^1.1.0",
-    "cheerio": "^1.0.0-rc.2",
-    "codecov": "^3.0.4",
+    "@kocal/semantic-release-preset": "^2.0.6",
     "cypress": "^4.0.1",
     "eslint": "^6.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.13.0",
     "jest": "^24.0.0",
     "jsdoc": "^3.6.2",
-    "semantic-release": "^15.12.1",
+    "semantic-release": "^17.1.1",
     "vue-template-compiler": "^2.5.21"
   }
 }
