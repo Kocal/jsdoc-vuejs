@@ -9,6 +9,11 @@ JSDoc for VueJS
 
 > A JSDoc plugin for listing props, data, computed data, and methods from *.vue files.
 
+## Requirements
+
+- Node 10+
+- Vue 2
+
 ## Installation
 
 ```bash
@@ -18,7 +23,7 @@ $ npm install --save-dev jsdoc jsdoc-vuejs
 You also need to install `vue-template-compiler` that match your Vue version:
 
 ```bash
-# if you use Vue 2.5.21
+# if you use Vue 2.5.21
 $ npm install --save-dev vue-template-compiler@2.5.21
 ```
 

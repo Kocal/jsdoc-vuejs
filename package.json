@@ -28,6 +28,9 @@
     "url": "https://github.com/Kocal/jsdoc-vuejs/issues"
   },
   "homepage": "https://github.com/Kocal/jsdoc-vuejs#readme",
+  "engines": {
+    "node": "^10.13.0 || >=12.0.0"
+  },
   "dependencies": {
     "ejs": "^3.0.1"
   },
