@@ -45,7 +45,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.13.0",
-    "jest": "^24.0.0",
+    "jest": "^26.5.0",
     "jsdoc": "^3.6.2",
     "semantic-release": "^17.1.1",
     "vue-template-compiler": "^2.5.21"
