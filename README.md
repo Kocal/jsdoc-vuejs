@@ -12,7 +12,7 @@ JSDoc for VueJS
 ## Requirements
 
 - Node 10+
-- Vue 2
+- Vue 3
 
 ## Installation
 
@@ -20,11 +20,11 @@ JSDoc for VueJS
 $ npm install --save-dev jsdoc jsdoc-vuejs
 ```
 
-You also need to install `vue-template-compiler` that match your Vue version:
+You also need to install `compiler-sfc` that match your Vue version:
 
 ```bash
 # if you use Vue 2.5.21
-$ npm install --save-dev vue-template-compiler@2.5.21
+$ npm install --save-dev @vue/compiler-sfc
 ```
 
 ## Usage
