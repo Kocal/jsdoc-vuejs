@@ -828,12 +828,12 @@
     "uri-js" "^4.2.2"
 
 "ajv@^6.12.3":
-  "version" "5.5.2"
+  "version" "6.12.6"
   dependencies:
-    "co" "^4.6.0"
-    "fast-deep-equal" "^1.0.0"
+    "fast-deep-equal" "^3.1.1"
     "fast-json-stable-stringify" "^2.0.0"
-    "json-schema-traverse" "^0.3.0"
+    "json-schema-traverse" "^0.4.1"
+    "uri-js" "^4.2.2"
 
 "ansi-align@^2.0.0":
   "integrity" "sha1-w2rsy6VjuJzrVW82kPCx2eNUf38="
@@ -1963,11 +1963,6 @@
   "resolved" "https://registry.npmjs.org/dateformat/-/dateformat-3.0.3.tgz"
   "version" "3.0.3"
 
-"de-indent@^1.0.2":
-  "integrity" "sha1-sgOOhG3DO6pXlhKNCAS0VbjB4h0="
-  "resolved" "https://registry.npmjs.org/de-indent/-/de-indent-1.0.2.tgz"
-  "version" "1.0.2"
-
 "debug@^2.2.0":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -2718,6 +2713,9 @@
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz"
   "version" "2.0.1"
 
+"fast-deep-equal@^3.1.1":
+  "version" "3.1.3"
+
 "fast-glob@^3.1.1":
   "integrity" "sha512-kr/Oo6PX51265qeuCYsyGypiO5uJFgBS0jksyG7FUeCyQzNwYnzrNIMR1NXfkZXsMYXYLRAHgISHBz8gQcxKHQ=="
   "resolved" "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.4.tgz"
@@ -3277,11 +3275,6 @@
   "integrity" "sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg=="
   "resolved" "https://registry.npmjs.org/hash-sum/-/hash-sum-2.0.0.tgz"
   "version" "2.0.0"
-
-"he@^1.1.0":
-  "integrity" "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
-  "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
-  "version" "1.2.0"
 
 "hook-std@^2.0.0":
   "integrity" "sha512-zZ6T5WcuBMIUVh49iPQS9t977t7C0l7OtHrpeMb5uk48JdflRX0NSFvCekfYNmGQETnLq9W/isMyHl69kxGi8g=="
@@ -8188,14 +8181,6 @@
     "assert-plus" "^1.0.0"
     "core-util-is" "1.0.2"
     "extsprintf" "^1.2.0"
-
-"vue-template-compiler@^2.5.21":
-  "integrity" "sha512-KIq15bvQDrcCjpGjrAhx4mUlyyHfdmTaoNfeoATHLAiWB+MU3cx4lOzMwrnUh9cCxy0Lt1T11hAFY6TQgroUAA=="
-  "resolved" "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.6.11.tgz"
-  "version" "2.6.11"
-  dependencies:
-    "de-indent" "^1.0.2"
-    "he" "^1.1.0"
 
 "vue@3.1.4":
   "integrity" "sha512-p8dcdyeCgmaAiZsbLyDkmOLcFGZb/jEVdCLW65V68LRCXTNX8jKsgah2F7OZ/v/Ai2V0Fb1MNO0vz/GFqsPVMA=="
