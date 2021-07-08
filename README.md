@@ -25,7 +25,7 @@ $ npm install --save-dev jsdoc jsdoc-vuejs
 You also need to install `compiler-sfc` that match your Vue version:
 
 ```bash
-# if you use Vue 2.5.21
+# if you use Vue 3+
 $ npm install --save-dev @vue/compiler-sfc
 ```
 
