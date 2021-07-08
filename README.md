@@ -7,12 +7,16 @@ JSDoc for VueJS
 [![codecov](https://codecov.io/gh/Kocal/jsdoc-vuejs/branch/master/graph/badge.svg)](https://codecov.io/gh/Kocal/jsdoc-vuejs)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/850b7601f2bf4e8787a6aadbafa8afef)](https://www.codacy.com/app/kocal/jsdoc-vuejs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kocal/jsdoc-vuejs&amp;utm_campaign=Badge_Grade)
 
-> A JSDoc plugin for listing props, data, computed data, and methods from *.vue files.
+A JSDoc plugin for listing props, data, computed data, and methods from `.vue` files.
+
+:warning: This branch is for Vue 3. If you still use Vue 2, please see [`3.x` branch](https://github.com/Kocal/jsdoc-vuejs/tree/3.x).
+
+---
 
 ## Requirements
 
 - Node 10+
-- Vue 2
+- Vue 3
 
 ## Installation
 
@@ -20,11 +24,10 @@ JSDoc for VueJS
 $ npm install --save-dev jsdoc jsdoc-vuejs
 ```
 
-You also need to install `vue-template-compiler` that match your Vue version:
+You also need to install `@vue/compiler-sfc` that match your Vue version:
 
 ```bash
-# if you use Vue 2.5.21
-$ npm install --save-dev vue-template-compiler@2.5.21
+$ npm install --save-dev @vue/compiler-sfc
 ```
 
 ## Usage

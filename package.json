@@ -1,7 +1,7 @@
 {
   "name": "jsdoc-vuejs",
   "version": "0.0.0-development",
-  "description": "A JSDoc plugin for documenting .vue files.",
+  "description": "A JSDoc plugin for documenting vue 3 files.",
   "main": "index.js",
   "files": [
     "lib",
@@ -14,15 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kocal/jsdoc-vuejs.git"
+    "url": "https://github.com/Kocal/jsdoc-vuejs"
   },
   "keywords": [
     "jsdoc",
     "vuejs",
     "vue component",
-    "vue file"
+    "vue file",
+    "vue 3"
   ],
-  "author": "Hugo Alliaume <kocal@live.fr>",
+  "author": "Hugo Alliaume <hugo@alliau.me>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kocal/jsdoc-vuejs/issues"
@@ -36,10 +37,11 @@
   },
   "peerDependencies": {
     "jsdoc": ">=3.0.0",
-    "vue-template-compiler": ">= 2.0.0"
+    "@vue/compiler-sfc": ">= 3.0.0"
   },
   "devDependencies": {
     "@kocal/semantic-release-preset": "^2.0.6",
+    "@vue/compiler-sfc": "^3.1.4",
     "cypress": "^4.0.1",
     "eslint": "^6.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -47,7 +49,6 @@
     "eslint-plugin-import": "^2.13.0",
     "jest": "^24.0.0",
     "jsdoc": "^3.6.2",
-    "semantic-release": "^17.1.1",
-    "vue-template-compiler": "^2.5.21"
+    "semantic-release": "^17.1.1"
   }
 }
