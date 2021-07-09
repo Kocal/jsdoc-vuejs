@@ -8,6 +8,7 @@ import { mapState } from 'vuex';
  * @vue-computed {Array.<String>} fooList - A list of foo
  * @vue-computed {Array.<String>} barList - A list of bar
  * @vue-computed {String} message A message
+ * @vue-slot #header This is a header slot
  */
 export default {
   name: 'CounterJS',
