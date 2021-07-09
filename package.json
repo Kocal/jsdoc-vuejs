@@ -1,5 +1,5 @@
 {
-  "name": "@djtorrey/jsdoc-vue3",
+  "name": "jsdoc-vue",
   "version": "0.0.0-development",
   "description": "A JSDoc plugin for documenting vue 3 files.",
   "main": "index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/InvenTorrey/jsdoc-vuejs"
+    "url": "https://github.com/Kocal/jsdoc-vuejs"
   },
   "keywords": [
     "jsdoc",
@@ -23,7 +23,7 @@
     "vue file",
     "vue 3"
   ],
-  "author": "Hugo Alliaume <kocal@live.fr>",
+  "author": "Hugo Alliaume <hugo@alliau.me>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kocal/jsdoc-vuejs/issues"
