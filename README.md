@@ -51,6 +51,7 @@ Update your .vue files with one of the following tags:
 - `@vue-data`
 - `@vue-computed`
 - `@vue-event`
+- `@vue-slot`
 
 All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags-param.html).
 
@@ -67,6 +68,7 @@ All of those tags work the same way than [`@param` tag](http://usejsdoc.org/tags
    * @vue-computed {String} message
    * @vue-event {Number} increment - Emit counter's value after increment
    * @vue-event {Number} decrement - Emit counter's value after decrement
+   * @vue-slot #myslot - This is my slot description
    */
   export default {
     props: {
