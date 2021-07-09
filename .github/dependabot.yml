@@ -1,0 +1,33 @@
+version: 2
+registries:
+  npm-registry-npm-pkg-github-com:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_TOKEN}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: cypress
+    versions:
+    - 6.3.0
+    - 6.4.0
+    - 6.5.0
+    - 6.6.0
+    - 6.8.0
+    - 7.0.1
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: ejs
+    versions:
+    - 3.1.5
+  - dependency-name: handlebars
+    versions:
+    - 4.7.6
+  registries:
+  - npm-registry-npm-pkg-github-com
