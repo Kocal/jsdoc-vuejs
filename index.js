@@ -8,6 +8,7 @@ const vueDataTag = require('./lib/tags/vue-data');
 const vuePropTag = require('./lib/tags/vue-prop');
 const vueComputedTag = require('./lib/tags/vue-computed');
 const vueEventTag = require('./lib/tags/vue-event');
+const vueSlotTag = require('./lib/tags/vue-slot');
 
 // Used to compute good line number for Vue methods
 const exportDefaultLines = {};
@@ -54,6 +55,7 @@ exports.handlers = {
         data: e.doclet._vueData || [],
         computed: e.doclet._vueComputed || [],
         event: e.doclet._vueEvent || [],
+        slots: e.doclet._vueSlots || []
       };
 
       render(template, data, (err, str) => {
@@ -86,4 +88,5 @@ exports.defineTags = function defineTags(dictionary) {
   dictionary.defineTag(vuePropTag.name, vuePropTag.options);
   dictionary.defineTag(vueComputedTag.name, vueComputedTag.options);
   dictionary.defineTag(vueEventTag.name, vueEventTag.options);
+  dictionary.defineTag(vueSlotTag.name,vueSlotTag.options);
 };
