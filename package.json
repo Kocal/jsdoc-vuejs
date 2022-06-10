@@ -49,6 +49,6 @@
     "eslint-plugin-import": "^2.13.0",
     "jest": "^24.0.0",
     "jsdoc": "^3.6.2",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^19.0.3"
   }
 }
