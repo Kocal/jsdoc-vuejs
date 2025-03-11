@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.extractVueScript extract script 1`] = `
+"
+/**
+ * @vue-event {String} foo - Emit foo event
+ */
+ const emit = defineEmits(['foo'])
+"
+`;
